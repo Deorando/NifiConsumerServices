@@ -1,0 +1,193 @@
+{
+  "revision": {
+    "version": 1
+  },
+  "position": {
+    "x": 1166.6126844714752,
+    "y": 2185.052734375
+  },
+  "permissions": {
+    "canRead": true,
+    "canWrite": true
+  },
+  "component": {
+    "id": "b32adcef-015a-1000-ffff-ffff8b3dcb32",
+    "parentGroupId": "6149e1b8-015a-1000-0000-00003ab7f01c",
+    "position": {
+      "x": 1166.6126844714752,
+      "y": 2185.052734375
+    },
+    "name": "stg_purchase_data_batch",
+    "type": "org.apache.nifi.amqp.processors.ConsumeAMQP",
+    "state": "RUNNING",
+    "style": {},
+    "relationships": [
+      {
+        "name": "success",
+        "description": "All FlowFiles that are received from the AMQP queue are routed to this relationship",
+        "autoTerminate": false
+      }
+    ],
+    "supportsParallelProcessing": true,
+    "supportsEventDriven": false,
+    "supportsBatching": false,
+    "persistsState": false,
+    "inputRequirement": "INPUT_FORBIDDEN",
+    "config": {
+      "properties": {
+        "nifi_objects.Consumer_model.Queue": "stg_purchase_data_batch",
+        "Host Name": "172.16.26.5",
+        "nifi_objects.Consumer_model.Port": "5672",
+        "Virtual Host": null,
+        "User Name": "producer",
+        "nifi_objects.Consumer_model.Password": "********",
+        "AMQP Version": "0.9.1",
+        "ssl-context-service": null,
+        "ssl-client-auth": "REQUIRED"
+      },
+      "descriptors": {
+        "nifi_objects.Consumer_model.Queue": {
+          "name": "nifi_objects.Consumer_model.Queue",
+          "displayName": "nifi_objects.Consumer_model.Queue",
+          "description": "The name of the existing AMQP nifi_objects.Consumer_model.Queue from which messages will be consumed. Usually pre-defined by AMQP administrator. ",
+          "required": true,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": false
+        },
+        "Host Name": {
+          "name": "Host Name",
+          "displayName": "Host Name",
+          "description": "Network address of AMQP broker (e.g., localhost)",
+          "defaultValue": "localhost",
+          "required": true,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": false
+        },
+        "nifi_objects.Consumer_model.Port": {
+          "name": "nifi_objects.Consumer_model.Port",
+          "displayName": "nifi_objects.Consumer_model.Port",
+          "description": "Numeric value identifying nifi_objects.Consumer_model.Port of AMQP broker (e.g., 5671)",
+          "defaultValue": "5672",
+          "required": true,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": false
+        },
+        "Virtual Host": {
+          "name": "Virtual Host",
+          "displayName": "Virtual Host",
+          "description": "Virtual Host name which segregates AMQP system for enhanced security.",
+          "required": false,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": false
+        },
+        "User Name": {
+          "name": "User Name",
+          "displayName": "User Name",
+          "description": "User Name used for authentication and authorization.",
+          "defaultValue": "guest",
+          "required": true,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": false
+        },
+        "nifi_objects.Consumer_model.Password": {
+          "name": "nifi_objects.Consumer_model.Password",
+          "displayName": "nifi_objects.Consumer_model.Password",
+          "description": "nifi_objects.Consumer_model.Password used for authentication and authorization.",
+          "defaultValue": "guest",
+          "required": true,
+          "sensitive": true,
+          "dynamic": false,
+          "supportsEl": false
+        },
+        "AMQP Version": {
+          "name": "AMQP Version",
+          "displayName": "AMQP Version",
+          "description": "AMQP Version. Currently only supports AMQP v0.9.1.",
+          "defaultValue": "0.9.1",
+          "allowableValues": [
+            {
+              "allowableValue": {
+                "displayName": "0.9.1",
+                "value": "0.9.1"
+              },
+              "canRead": true
+            }
+          ],
+          "required": true,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": false
+        },
+        "ssl-context-service": {
+          "name": "ssl-context-service",
+          "displayName": "SSL Context Service",
+          "description": "The SSL Context Service used to provide client certificate information for TLS/SSL connections.",
+          "allowableValues": [],
+          "required": false,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": false,
+          "identifiesControllerService": "org.apache.nifi.ssl.SSLContextService"
+        },
+        "ssl-client-auth": {
+          "name": "ssl-client-auth",
+          "displayName": "Client Auth",
+          "description": "Client authentication policy when connecting to secure (TLS/SSL) AMQP broker. Possible values are REQUIRED, WANT, NONE. This property is only used when an SSL Context has been defined and enabled.",
+          "defaultValue": "REQUIRED",
+          "allowableValues": [
+            {
+              "allowableValue": {
+                "displayName": "WANT",
+                "value": "WANT"
+              },
+              "canRead": true
+            },
+            {
+              "allowableValue": {
+                "displayName": "REQUIRED",
+                "value": "REQUIRED"
+              },
+              "canRead": true
+            },
+            {
+              "allowableValue": {
+                "displayName": "NONE",
+                "value": "NONE"
+              },
+              "canRead": true
+            }
+          ],
+          "required": false,
+          "sensitive": false,
+          "dynamic": false,
+          "supportsEl": false
+        }
+      },
+      "schedulingPeriod": "0 sec",
+      "schedulingStrategy": "TIMER_DRIVEN",
+      "penaltyDuration": "30 sec",
+      "yieldDuration": "1 sec",
+      "bulletinLevel": "WARN",
+      "runDurationMillis": 0,
+      "concurrentlySchedulableTaskCount": 1,
+      "comments": "",
+      "lossTolerant": false,
+      "defaultConcurrentTasks": {
+        "TIMER_DRIVEN": "1",
+        "EVENT_DRIVEN": "0",
+        "CRON_DRIVEN": "1"
+      },
+      "defaultSchedulingPeriod": {
+        "TIMER_DRIVEN": "0 sec",
+        "CRON_DRIVEN": "* * * * * ?"
+      }
+    },
+    "validationErrors": []
+  },
+  "inputRequirement": "INPUT_FORBIDDEN"
+}
