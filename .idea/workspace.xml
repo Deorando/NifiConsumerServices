@@ -483,7 +483,7 @@
       <workItem from="1508501086850" duration="1642000" />
       <workItem from="1508514988610" duration="1371000" />
       <workItem from="1508516397584" duration="10325000" />
-      <workItem from="1508687513932" duration="8844000" />
+      <workItem from="1508687513932" duration="8852000" />
     </task>
     <task id="LOCAL-00001" summary="create some good stuff">
       <created>1508529460043</created>
@@ -499,11 +499,18 @@
       <option name="project" value="LOCAL" />
       <updated>1508701368821</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="create http method and merge model">
+      <created>1508701402266</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1508701402266</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30551000" />
+    <option name="totallyTimeSpent" value="30559000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1592" y="-8" width="1936" height="1066" extended-state="6" />
@@ -991,8 +998,8 @@
         <state relative-caret-position="204">
           <caret line="12" column="5" lean-forward="true" selection-start-line="9" selection-start-column="4" selection-end-line="12" selection-end-column="5" />
           <folding>
-            <element signature="e#196#197#0" expanded="true" />
-            <element signature="e#222#223#0" expanded="true" />
+            <element signature="e#196#197#0" expanded="false" />
+            <element signature="e#222#223#0" expanded="false" />
           </folding>
         </state>
       </provider>
