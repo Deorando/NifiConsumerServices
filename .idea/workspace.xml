@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="44c683ae-6e8a-4542-a36f-5adcd8ab2757" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Merge_model/Component.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Merge_model/Config.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Merge_model/DefaultConcurrentTasks.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Merge_model/DefaultSchedulingPeriod.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Merge_model/JsonMerge.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Merge_model/Permissions.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Merge_model/Position.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Merge_model/Properties.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Merge_model/Relationship.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Merge_model/Revision.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Merge_model/Style.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/service/HttpURLConnectionNifi.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/service/main.java" afterPath="$PROJECT_DIR$/src/main/java/service/main.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -496,7 +483,7 @@
       <workItem from="1508501086850" duration="1642000" />
       <workItem from="1508514988610" duration="1371000" />
       <workItem from="1508516397584" duration="10325000" />
-      <workItem from="1508687513932" duration="8768000" />
+      <workItem from="1508687513932" duration="8844000" />
     </task>
     <task id="LOCAL-00001" summary="create some good stuff">
       <created>1508529460043</created>
@@ -505,11 +492,18 @@
       <option name="project" value="LOCAL" />
       <updated>1508529460043</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="create http method and merge model">
+      <created>1508701368821</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1508701368821</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30475000" />
+    <option name="totallyTimeSpent" value="30551000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1592" y="-8" width="1936" height="1066" extended-state="6" />
@@ -553,7 +547,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="test" />
     <MESSAGE value="create some good stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="create some good stuff" />
+    <MESSAGE value="create http method and merge model" />
+    <option name="LAST_COMMIT_MESSAGE" value="create http method and merge model" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
