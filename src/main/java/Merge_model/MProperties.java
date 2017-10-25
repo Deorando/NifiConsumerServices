@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 @Generated("net.hexar.json2pojo")
 @SuppressWarnings("unused")
-public class Properties {
+public class MProperties {
 
     @SerializedName("Attribute Strategy")
     private String mAttributeStrategy;
@@ -167,10 +167,10 @@ public class Properties {
     public void setMinimumNumberOfEntries(String MinimumNumberOfEntries) {
         mMinimumNumberOfEntries = MinimumNumberOfEntries;
     }
-    public Properties(){
-        this.mMergeStrategy="Bin-PackingAlgorithm";
+    public MProperties(){
+        this.mMergeStrategy="Bin-Packing Algorithm";
         this.mMergeFormat="Avro";
-        this.mAttributeStrategy="KeepOnlyCommonAttributes";
+        this.mAttributeStrategy="Keep Only Common Attributes";
         this.mCorrelationAttributeName=null;
         this.mMinimumNumberOfEntries="1";
         this.mMinimumGroupSize="0B";

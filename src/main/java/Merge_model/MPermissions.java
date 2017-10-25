@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 @Generated("net.hexar.json2pojo")
 @SuppressWarnings("unused")
-public class Permissions {
+public class MPermissions {
 
     @SerializedName("canRead")
     private Boolean mCanRead;
@@ -28,7 +28,7 @@ public class Permissions {
         mCanWrite = canWrite;
     }
 
-    public Permissions(){
+    public MPermissions(){
         this.mCanRead=true;
         this.mCanWrite=true;
 

@@ -1,5 +1,6 @@
 package Merge_model;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
@@ -11,15 +12,15 @@ public class JsonMerge {
     @SerializedName("bulletins")
     private List<Object> mBulletins;
     @SerializedName("component")
-    private Component mComponent;
+    private MComponent mMComponent;
     @SerializedName("inputRequirement")
     private String mInputRequirement;
     @SerializedName("permissions")
-    private Permissions mPermissions;
+    private MPermissions mMPermissions;
     @SerializedName("position")
-    private Position mPosition;
+    private MPosition mMPosition;
     @SerializedName("revision")
-    private Revision mRevision;
+    private MRevision mMRevision;
 
     public List<Object> getBulletins() {
         return mBulletins;
@@ -29,12 +30,12 @@ public class JsonMerge {
         mBulletins = bulletins;
     }
 
-    public Component getComponent() {
-        return mComponent;
+    public MComponent getComponent() {
+        return mMComponent;
     }
 
-    public void setComponent(Component component) {
-        mComponent = component;
+    public void setComponent(MComponent MComponent) {
+        mMComponent = MComponent;
     }
 
     public String getInputRequirement() {
@@ -45,35 +46,43 @@ public class JsonMerge {
         mInputRequirement = inputRequirement;
     }
 
-    public Permissions getPermissions() {
-        return mPermissions;
+    public MPermissions getPermissions() {
+        return mMPermissions;
     }
 
-    public void setPermissions(Permissions permissions) {
-        mPermissions = permissions;
+    public void setPermissions(MPermissions MPermissions) {
+        mMPermissions = MPermissions;
     }
 
-    public Position getPosition() {
-        return mPosition;
+    public MPosition getPosition() {
+        return mMPosition;
     }
 
-    public void setPosition(Position position) {
-        mPosition = position;
+    public void setPosition(MPosition MPosition) {
+        mMPosition = MPosition;
     }
 
-    public Revision getRevision() {
-        return mRevision;
+    public MRevision getRevision() {
+        return mMRevision;
     }
 
-    public void setRevision(Revision revision) {
-        mRevision = revision;
+    public void setRevision(MRevision MRevision) {
+        mMRevision = MRevision;
     }
-    public JsonMerge(Position p,Properties pr ) {
-        mRevision = new Revision();
-        mComponent = new Component(p, pr);
-        mPermissions = new Permissions();
-        mPosition = p;
+    public JsonMerge(MPosition p, MProperties pr ) {
+        mMRevision = new MRevision();
+        mMComponent = new MComponent(p, pr, this.getMRelations());
+        mMPermissions = new MPermissions();
+        mMPosition = p;
         mInputRequirement = "INPUT_FORBIDDEN";
+    }
+
+    private ArrayList<MRelationship> getMRelations() {
+        RelationshipMerge rm = new RelationshipMerge();
+        ArrayList<MRelationship> relationships =rm.getL_mr();
+
+
+        return relationships;
     }
 
 }

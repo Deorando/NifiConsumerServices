@@ -4,9 +4,9 @@ import javax.annotation.Generated;
 
 @Generated("net.hexar.json2pojo")
 @SuppressWarnings("unused")
-public class Style {
+public class MStyle {
     String Dummy;
-    public Style() {
+    public MStyle() {
         Dummy=null;
     }
 

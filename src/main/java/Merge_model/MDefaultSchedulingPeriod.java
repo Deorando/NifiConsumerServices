@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 @Generated("net.hexar.json2pojo")
 @SuppressWarnings("unused")
-public class DefaultSchedulingPeriod {
+public class MDefaultSchedulingPeriod {
 
     @SerializedName("CRON_DRIVEN")
     private String mCRONDRIVEN;
@@ -28,7 +28,7 @@ public class DefaultSchedulingPeriod {
         mTIMERDRIVEN = TIMERDRIVEN;
     }
 
-    public DefaultSchedulingPeriod(){
+    public MDefaultSchedulingPeriod(){
         mCRONDRIVEN="* * * * * ?";
         mTIMERDRIVEN="0 sec";
     }

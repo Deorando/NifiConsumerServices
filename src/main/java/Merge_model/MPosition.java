@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 @Generated("net.hexar.json2pojo")
 @SuppressWarnings("unused")
-public class Position {
+public class MPosition {
 
     @SerializedName("x")
     private Double mX;
@@ -27,7 +27,7 @@ public class Position {
     public void setY(Double y) {
         mY = y;
     }
-    public Position(Double mX,Double mY){
+    public MPosition(Double mX, Double mY){
         this.mX=mX;
         this.mY=mY;
 

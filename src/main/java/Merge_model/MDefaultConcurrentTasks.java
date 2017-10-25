@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 @Generated("net.hexar.json2pojo")
 @SuppressWarnings("unused")
-public class DefaultConcurrentTasks {
+public class MDefaultConcurrentTasks {
 
     @SerializedName("CRON_DRIVEN")
     private String mCRONDRIVEN;
@@ -37,7 +37,7 @@ public class DefaultConcurrentTasks {
     public void setTIMERDRIVEN(String TIMERDRIVEN) {
         mTIMERDRIVEN = TIMERDRIVEN;
     }
-    public DefaultConcurrentTasks(){
+    public MDefaultConcurrentTasks(){
         mCRONDRIVEN="1";
         mEVENTDRIVEN="0";
         mTIMERDRIVEN="1";

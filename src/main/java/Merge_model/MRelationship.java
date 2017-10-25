@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 @Generated("net.hexar.json2pojo")
 @SuppressWarnings("unused")
-public class Relationship {
+public class MRelationship {
 
     @SerializedName("autoTerminate")
     private Boolean mAutoTerminate;
@@ -40,11 +40,18 @@ public class Relationship {
         mName = name;
     }
 
-    public Relationship() {
-        ArrayList<Relationship> rls = new ArrayList<Relationship>();
+    public MRelationship() {
+
         this.mAutoTerminate=false;
         this.mDescription="If the bundle cannot be created, all FlowFiles that would have been used to created the bundle will be transferred to failure";
         this.mName="failure";
+
+
     }
 
+    public MRelationship(Boolean mAutoTerminate, String mDescription, String mName) {
+        this.mAutoTerminate = mAutoTerminate;
+        this.mDescription = mDescription;
+        this.mName = mName;
+    }
 }

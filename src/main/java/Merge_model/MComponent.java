@@ -6,12 +6,13 @@ import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
 
 
+
 @Generated("net.hexar.json2pojo")
 @SuppressWarnings("unused")
-public class Component {
+public class MComponent {
 
     @SerializedName("config")
-    private Config mConfig;
+    private MConfig mConfig;
     @SerializedName("inputRequirement")
     private String mInputRequirement;
     @SerializedName("name")
@@ -19,13 +20,13 @@ public class Component {
     @SerializedName("persistsState")
     private Boolean mPersistsState;
     @SerializedName("position")
-    private Position mPosition;
+    private MPosition mMPosition;
     @SerializedName("relationships")
-    private List<Relationship> mRelationships;
+    private List<MRelationship> mMRelationships;
     @SerializedName("state")
     private String mState;
     @SerializedName("style")
-    private Style mStyle;
+    private MStyle mMStyle;
     @SerializedName("supportsBatching")
     private Boolean mSupportsBatching;
     @SerializedName("supportsEventDriven")
@@ -37,11 +38,11 @@ public class Component {
     @SerializedName("validationErrors")
     private List<Object> mValidationErrors;
 
-    public Config getConfig() {
+    public MConfig getConfig() {
         return mConfig;
     }
 
-    public void setConfig(Config config) {
+    public void setConfig(MConfig config) {
         mConfig = config;
     }
 
@@ -69,20 +70,20 @@ public class Component {
         mPersistsState = persistsState;
     }
 
-    public Position getPosition() {
-        return mPosition;
+    public MPosition getPosition() {
+        return mMPosition;
     }
 
-    public void setPosition(Position position) {
-        mPosition = position;
+    public void setPosition(MPosition MPosition) {
+        mMPosition = MPosition;
     }
 
-    public List<Relationship> getRelationships() {
-        return mRelationships;
+    public List<MRelationship> getRelationships() {
+        return mMRelationships;
     }
 
-    public void setRelationships(List<Relationship> relationships) {
-        mRelationships = relationships;
+    public void setRelationships(List<MRelationship> MRelationships) {
+        mMRelationships = MRelationships;
     }
 
     public String getState() {
@@ -93,12 +94,12 @@ public class Component {
         mState = state;
     }
 
-    public Style getStyle() {
-        return mStyle;
+    public MStyle getStyle() {
+        return mMStyle;
     }
 
-    public void setStyle(Style style) {
-        mStyle = style;
+    public void setStyle(MStyle MStyle) {
+        mMStyle = MStyle;
     }
 
     public Boolean getSupportsBatching() {
@@ -141,7 +142,7 @@ public class Component {
         mValidationErrors = validationErrors;
     }
 
-    public Component(Position p, Properties pr) {
+    public MComponent(MPosition p, MProperties pr,List<MRelationship> relationships) {
         mType = "org.apache.nifi.processors.standard.MergeContent";
         mState = "STOPPED";
         mSupportsParallelProcessing = true;
@@ -149,15 +150,9 @@ public class Component {
         mSupportsBatching = false;
         mPersistsState = false;
         mInputRequirement = "INPUT_FORBIDDEN";
-        Relationship re1 = new Relationship();
-        Relationship re2 = new Relationship();
-        Relationship re3 = new Relationship();
-        mRelationships = new ArrayList<Relationship>();
-        mRelationships.add(re1);
-        mRelationships.add(re2);
-        mRelationships.add(re3);
-        mConfig = new Config(pr);
-        mPosition = p;
+        mMRelationships = relationships;
+        mConfig = new MConfig(pr);
+        mMPosition = p;
     }
 
 }

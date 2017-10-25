@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 @Generated("net.hexar.json2pojo")
 @SuppressWarnings("unused")
-public class Config {
+public class MConfig {
 
     @SerializedName("bulletinLevel")
     private String mBulletinLevel;
@@ -14,15 +14,15 @@ public class Config {
     @SerializedName("concurrentlySchedulableTaskCount")
     private Long mConcurrentlySchedulableTaskCount;
     @SerializedName("defaultConcurrentTasks")
-    private DefaultConcurrentTasks mDefaultConcurrentTasks;
+    private MDefaultConcurrentTasks mMDefaultConcurrentTasks;
     @SerializedName("defaultSchedulingPeriod")
-    private DefaultSchedulingPeriod mDefaultSchedulingPeriod;
+    private MDefaultSchedulingPeriod mMDefaultSchedulingPeriod;
     @SerializedName("lossTolerant")
     private Boolean mLossTolerant;
     @SerializedName("penaltyDuration")
     private String mPenaltyDuration;
     @SerializedName("properties")
-    private Properties mProperties;
+    private MProperties mMProperties;
     @SerializedName("runDurationMillis")
     private Long mRunDurationMillis;
     @SerializedName("schedulingPeriod")
@@ -56,20 +56,20 @@ public class Config {
         mConcurrentlySchedulableTaskCount = concurrentlySchedulableTaskCount;
     }
 
-    public DefaultConcurrentTasks getDefaultConcurrentTasks() {
-        return mDefaultConcurrentTasks;
+    public MDefaultConcurrentTasks getDefaultConcurrentTasks() {
+        return mMDefaultConcurrentTasks;
     }
 
-    public void setDefaultConcurrentTasks(DefaultConcurrentTasks defaultConcurrentTasks) {
-        mDefaultConcurrentTasks = defaultConcurrentTasks;
+    public void setDefaultConcurrentTasks(MDefaultConcurrentTasks MDefaultConcurrentTasks) {
+        mMDefaultConcurrentTasks = MDefaultConcurrentTasks;
     }
 
-    public DefaultSchedulingPeriod getDefaultSchedulingPeriod() {
-        return mDefaultSchedulingPeriod;
+    public MDefaultSchedulingPeriod getDefaultSchedulingPeriod() {
+        return mMDefaultSchedulingPeriod;
     }
 
-    public void setDefaultSchedulingPeriod(DefaultSchedulingPeriod defaultSchedulingPeriod) {
-        mDefaultSchedulingPeriod = defaultSchedulingPeriod;
+    public void setDefaultSchedulingPeriod(MDefaultSchedulingPeriod MDefaultSchedulingPeriod) {
+        mMDefaultSchedulingPeriod = MDefaultSchedulingPeriod;
     }
 
     public Boolean getLossTolerant() {
@@ -88,12 +88,12 @@ public class Config {
         mPenaltyDuration = penaltyDuration;
     }
 
-    public Properties getProperties() {
-        return mProperties;
+    public MProperties getProperties() {
+        return mMProperties;
     }
 
-    public void setProperties(Properties properties) {
-        mProperties = properties;
+    public void setProperties(MProperties MProperties) {
+        mMProperties = MProperties;
     }
 
     public Long getRunDurationMillis() {
@@ -128,19 +128,19 @@ public class Config {
         mYieldDuration = yieldDuration;
     }
 
-    public Config(Properties ppr){
+    public MConfig(MProperties ppr){
         this.mSchedulingPeriod="3600 sec";
         this.mSchedulingStrategy="TIMER_DRIVEN";
         this.mPenaltyDuration="30 sec";
         this.mYieldDuration="1sec";
-        this.mBulletinLevel="Warn";
+        this.mBulletinLevel="WARN";
         this.mRunDurationMillis=0l;
         this.mConcurrentlySchedulableTaskCount=1l;
         this.mComments=null;
         this.mLossTolerant=false;
-        Properties pro= new Properties();
-        DefaultSchedulingPeriod dsp= new DefaultSchedulingPeriod();
-        DefaultConcurrentTasks dct= new DefaultConcurrentTasks();
+        mMProperties= ppr;
+        MDefaultSchedulingPeriod dsp= new MDefaultSchedulingPeriod();
+        MDefaultConcurrentTasks dct= new MDefaultConcurrentTasks();
 
 
 
