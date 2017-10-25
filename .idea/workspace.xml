@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="44c683ae-6e8a-4542-a36f-5adcd8ab2757" name="Default" comment="test">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/Merge_model/Component.java" afterPath="$PROJECT_DIR$/src/main/java/Merge_model/MComponent.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/Merge_model/Config.java" afterPath="$PROJECT_DIR$/src/main/java/Merge_model/MConfig.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/Merge_model/DefaultConcurrentTasks.java" afterPath="$PROJECT_DIR$/src/main/java/Merge_model/MDefaultConcurrentTasks.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/Merge_model/DefaultSchedulingPeriod.java" afterPath="$PROJECT_DIR$/src/main/java/Merge_model/MDefaultSchedulingPeriod.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/Merge_model/Permissions.java" afterPath="$PROJECT_DIR$/src/main/java/Merge_model/MPermissions.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/Merge_model/Position.java" afterPath="$PROJECT_DIR$/src/main/java/Merge_model/MPosition.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/Merge_model/Properties.java" afterPath="$PROJECT_DIR$/src/main/java/Merge_model/MProperties.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/Merge_model/Relationship.java" afterPath="$PROJECT_DIR$/src/main/java/Merge_model/MRelationship.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/Merge_model/Revision.java" afterPath="$PROJECT_DIR$/src/main/java/Merge_model/MRevision.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/Merge_model/Style.java" afterPath="$PROJECT_DIR$/src/main/java/Merge_model/MStyle.java" />
+    <list default="true" id="44c683ae-6e8a-4542-a36f-5adcd8ab2757" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Merge_model/RelationshipMerge.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Put_hdfs_hour/HComponent.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Put_hdfs_hour/HConfig.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Put_hdfs_hour/HDefaultConcurrentTasks.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Put_hdfs_hour/HDefaultSchedulingPeriod.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Put_hdfs_hour/HPermissions.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Put_hdfs_hour/HPosition.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Put_hdfs_hour/HProperties.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Put_hdfs_hour/HRelationship.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Put_hdfs_hour/HRevision.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Put_hdfs_hour/HStyle.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Put_hdfs_hour/PutHdfsHour.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Merge_model/JsonMerge.java" afterPath="$PROJECT_DIR$/src/main/java/Merge_model/JsonMerge.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/service/main.java" afterPath="$PROJECT_DIR$/src/main/java/service/main.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -28,7 +28,7 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/service/main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="344">
@@ -90,7 +90,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RelationshipMerge.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="RelationshipMerge.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Merge_model/RelationshipMerge.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
@@ -918,11 +918,18 @@
       <option name="project" value="LOCAL" />
       <updated>1508701402266</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="test">
+      <created>1508947677988</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1508947677988</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46070000" />
+    <option name="totallyTimeSpent" value="46121000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -984,10 +991,10 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="test" />
     <MESSAGE value="create some good stuff" />
     <MESSAGE value="create http method and merge model" />
-    <option name="LAST_COMMIT_MESSAGE" value="create http method and merge model" />
+    <MESSAGE value="test" />
+    <option name="LAST_COMMIT_MESSAGE" value="test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1759,6 +1766,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/service/main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="344">
+          <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Merge_model/RelationshipMerge.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -1768,16 +1785,6 @@
             <element signature="e#207#222#0" expanded="true" />
             <element signature="e#807#808#0" expanded="true" />
             <element signature="e#834#835#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/service/main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
