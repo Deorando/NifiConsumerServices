@@ -69,9 +69,9 @@ public class JsonMerge {
     public void setRevision(MRevision MRevision) {
         mMRevision = MRevision;
     }
-    public JsonMerge(MPosition p, MProperties pr ) {
+    public JsonMerge(MPosition p, MProperties pr,String name,String sPeriod,String sStrategy ) {
         mMRevision = new MRevision();
-        mMComponent = new MComponent(p, pr, this.getMRelations());
+        mMComponent = new MComponent(p, pr, this.getMRelations(),name,sPeriod,sStrategy);
         mMPermissions = new MPermissions();
         mMPosition = p;
         mInputRequirement = "INPUT_FORBIDDEN";

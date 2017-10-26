@@ -1,11 +1,12 @@
-package Merge_model;
+
+package getHdfsDay;
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
 
 @Generated("net.hexar.json2pojo")
 @SuppressWarnings("unused")
-public class MConfig {
+public class GDConfig {
 
     @SerializedName("bulletinLevel")
     private String mBulletinLevel;
@@ -14,15 +15,15 @@ public class MConfig {
     @SerializedName("concurrentlySchedulableTaskCount")
     private Long mConcurrentlySchedulableTaskCount;
     @SerializedName("defaultConcurrentTasks")
-    private MDefaultConcurrentTasks mMDefaultConcurrentTasks;
+    private GDDefaultConcurrentTasks mGDDefaultConcurrentTasks;
     @SerializedName("defaultSchedulingPeriod")
-    private MDefaultSchedulingPeriod mMDefaultSchedulingPeriod;
+    private GDDefaultSchedulingPeriod mGDDefaultSchedulingPeriod;
     @SerializedName("lossTolerant")
     private Boolean mLossTolerant;
     @SerializedName("penaltyDuration")
     private String mPenaltyDuration;
     @SerializedName("properties")
-    private MProperties mMProperties;
+    private GDProperties mGDProperties;
     @SerializedName("runDurationMillis")
     private Long mRunDurationMillis;
     @SerializedName("schedulingPeriod")
@@ -56,20 +57,20 @@ public class MConfig {
         mConcurrentlySchedulableTaskCount = concurrentlySchedulableTaskCount;
     }
 
-    public MDefaultConcurrentTasks getDefaultConcurrentTasks() {
-        return mMDefaultConcurrentTasks;
+    public GDDefaultConcurrentTasks getDefaultConcurrentTasks() {
+        return mGDDefaultConcurrentTasks;
     }
 
-    public void setDefaultConcurrentTasks(MDefaultConcurrentTasks MDefaultConcurrentTasks) {
-        mMDefaultConcurrentTasks = MDefaultConcurrentTasks;
+    public void setDefaultConcurrentTasks(GDDefaultConcurrentTasks GDDefaultConcurrentTasks) {
+        mGDDefaultConcurrentTasks = GDDefaultConcurrentTasks;
     }
 
-    public MDefaultSchedulingPeriod getDefaultSchedulingPeriod() {
-        return mMDefaultSchedulingPeriod;
+    public GDDefaultSchedulingPeriod getDefaultSchedulingPeriod() {
+        return mGDDefaultSchedulingPeriod;
     }
 
-    public void setDefaultSchedulingPeriod(MDefaultSchedulingPeriod MDefaultSchedulingPeriod) {
-        mMDefaultSchedulingPeriod = MDefaultSchedulingPeriod;
+    public void setDefaultSchedulingPeriod(GDDefaultSchedulingPeriod GDDefaultSchedulingPeriod) {
+        mGDDefaultSchedulingPeriod = GDDefaultSchedulingPeriod;
     }
 
     public Boolean getLossTolerant() {
@@ -88,12 +89,12 @@ public class MConfig {
         mPenaltyDuration = penaltyDuration;
     }
 
-    public MProperties getProperties() {
-        return mMProperties;
+    public GDProperties getProperties() {
+        return mGDProperties;
     }
 
-    public void setProperties(MProperties MProperties) {
-        mMProperties = MProperties;
+    public void setProperties(GDProperties GDProperties) {
+        mGDProperties = GDProperties;
     }
 
     public Long getRunDurationMillis() {
@@ -128,27 +129,22 @@ public class MConfig {
         mYieldDuration = yieldDuration;
     }
 
-    public MConfig(MProperties ppr,String sPeriod,String sStrategy){
-      //  this.mSchedulingPeriod="3600 sec";
-      //  this.mSchedulingStrategy="TIMER_DRIVEN";
-     //   this.mSchedulingPeriod="* 43 * * * ?";
-     //   this.mSchedulingStrategy="CRON_DRIVEN";
-        this.mSchedulingPeriod=sPeriod;
-        this.mSchedulingStrategy=sStrategy;
-        this.mPenaltyDuration="30 sec";
-        this.mYieldDuration="1sec";
-        this.mBulletinLevel="WARN";
-        this.mRunDurationMillis=0l;
-        this.mConcurrentlySchedulableTaskCount=1l;
-        this.mComments=null;
-        this.mLossTolerant=false;
-        mMProperties= ppr;
-        MDefaultSchedulingPeriod dsp= new MDefaultSchedulingPeriod();
-        MDefaultConcurrentTasks dct= new MDefaultConcurrentTasks();
+    public GDConfig(String sPeriod,String sStrategy,GDProperties ppr ){
 
-
-
-
+        //this.mSchedulingPeriod= "0 10 23 * * ?";
+        //this.mSchedulingStrategy= "CRON_DRIVEN";
+        mGDProperties=ppr;
+        this.mSchedulingPeriod= sPeriod;
+        this.mSchedulingStrategy= sStrategy;
+        this.mPenaltyDuration= "30 sec";
+        this.mYieldDuration= "1 sec";
+        this.mBulletinLevel= "WARN";
+        this.mRunDurationMillis= 0l;
+        this.mConcurrentlySchedulableTaskCount= 1l;
+        this.mComments="";
+        this.mLossTolerant= false;
+        mGDDefaultConcurrentTasks  = new GDDefaultConcurrentTasks();
+        mGDDefaultSchedulingPeriod = new GDDefaultSchedulingPeriod();
     }
 
 }

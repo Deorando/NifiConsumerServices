@@ -71,11 +71,11 @@ public class PutHdfsHour {
     public void setRevision(HRevision HRevision) {
         mHRevision = HRevision;
     }
-    public PutHdfsHour(HPosition p,HConfig hconfig){
+    public PutHdfsHour(HPosition p,HConfig hconfig,String name){
         mHRevision= new HRevision();
         mHPosition= p;
         mHPermissions= new HPermissions();
-        mHComponent=new HComponent(p,hconfig);
+        mHComponent=new HComponent(p,hconfig,name);
         mInputRequirement="INPUT_REQUIRED";
 
     }

@@ -1,18 +1,16 @@
 
-package Put_hdfs_hour;
+package getHdfsDay;
 
-import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Generated;
-
 import com.google.gson.annotations.SerializedName;
 
 @Generated("net.hexar.json2pojo")
 @SuppressWarnings("unused")
-public class HComponent {
+public class GDComponent {
 
     @SerializedName("config")
-    private HConfig mHConfig;
+    private GDConfig mGDConfig;
     @SerializedName("inputRequirement")
     private String mInputRequirement;
     @SerializedName("name")
@@ -20,13 +18,13 @@ public class HComponent {
     @SerializedName("persistsState")
     private Boolean mPersistsState;
     @SerializedName("position")
-    private HPosition mHPosition;
+    private GDPosition mGDPosition;
     @SerializedName("relationships")
-    private List<HRelationship> mHRelationships;
+    private List<GDRelationship> mGDRelationships;
     @SerializedName("state")
     private String mState;
     @SerializedName("style")
-    private HStyle mHStyle;
+    private GDStyle mGDStyle;
     @SerializedName("supportsBatching")
     private Boolean mSupportsBatching;
     @SerializedName("supportsEventDriven")
@@ -38,12 +36,12 @@ public class HComponent {
     @SerializedName("validationErrors")
     private List<Object> mValidationErrors;
 
-    public HConfig getConfig() {
-        return mHConfig;
+    public GDConfig getConfig() {
+        return mGDConfig;
     }
 
-    public void setConfig(HConfig HConfig) {
-        mHConfig = HConfig;
+    public void setConfig(GDConfig GDConfig) {
+        mGDConfig = GDConfig;
     }
 
     public String getInputRequirement() {
@@ -70,20 +68,20 @@ public class HComponent {
         mPersistsState = persistsState;
     }
 
-    public HPosition getPosition() {
-        return mHPosition;
+    public GDPosition getPosition() {
+        return mGDPosition;
     }
 
-    public void setPosition(HPosition HPosition) {
-        mHPosition = HPosition;
+    public void setPosition(GDPosition GDPosition) {
+        mGDPosition = GDPosition;
     }
 
-    public List<HRelationship> getRelationships() {
-        return mHRelationships;
+    public List<GDRelationship> getRelationships() {
+        return mGDRelationships;
     }
 
-    public void setRelationships(List<HRelationship> HRelationships) {
-        mHRelationships = HRelationships;
+    public void setRelationships(List<GDRelationship> GDRelationships) {
+        mGDRelationships = GDRelationships;
     }
 
     public String getState() {
@@ -94,12 +92,12 @@ public class HComponent {
         mState = state;
     }
 
-    public HStyle getStyle() {
-        return mHStyle;
+    public GDStyle getStyle() {
+        return mGDStyle;
     }
 
-    public void setStyle(HStyle HStyle) {
-        mHStyle = HStyle;
+    public void setStyle(GDStyle GDStyle) {
+        mGDStyle = GDStyle;
     }
 
     public Boolean getSupportsBatching() {
@@ -142,22 +140,18 @@ public class HComponent {
         mValidationErrors = validationErrors;
     }
 
-    public HComponent(HPosition p,HConfig conf,String name) {
-        mName = name;
-        mType = "org.apache.nifi.processors.hadoop.PutHDFS";
-        mState = "STOPPED";
-        mSupportsParallelProcessing = true;
-        mSupportsEventDriven = false;
-        mSupportsBatching = false;
-        mPersistsState = false;
-        mInputRequirement="INPUT_REQUIRED";
-        mHPosition=p;
-        mHConfig=conf;
-        HRelationship re = new HRelationship();
-        mHRelationships= new ArrayList<HRelationship>();
-        mHRelationships.add(re);
-
-
+    public GDComponent(GDPosition p, GDProperties pr,String name,String sPeriod,String sStrategy){
+        //this.mName="GetHDFS_usage_communication_data_day";
+        this.mName=name;
+        this.mType="org.apache.nifi.processors.hadoop.GetHDFS";
+        this.mState="STOPPED";
+        this.mSupportsParallelProcessing= true;
+        this.mSupportsEventDriven= false;
+        this.mSupportsBatching= false;
+        this.mPersistsState= false;
+        this.mInputRequirement="INPUT_FORBIDDEN";
+        mGDConfig= new GDConfig(sPeriod,sStrategy,pr);
+        mGDPosition=p;
 
 
     }

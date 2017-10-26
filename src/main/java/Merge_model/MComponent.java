@@ -142,7 +142,7 @@ public class MComponent {
         mValidationErrors = validationErrors;
     }
 
-    public MComponent(MPosition p, MProperties pr,List<MRelationship> relationships) {
+    public MComponent(MPosition p, MProperties pr,List<MRelationship> relationships,String name,String sPeriod,String sStrategy) {
         mType = "org.apache.nifi.processors.standard.MergeContent";
         mState = "STOPPED";
         mSupportsParallelProcessing = true;
@@ -151,8 +151,9 @@ public class MComponent {
         mPersistsState = false;
         mInputRequirement = "INPUT_FORBIDDEN";
         mMRelationships = relationships;
-        mConfig = new MConfig(pr);
+        mConfig = new MConfig(pr,sPeriod,sStrategy);
         mMPosition = p;
+        mName=name;
     }
 
 }

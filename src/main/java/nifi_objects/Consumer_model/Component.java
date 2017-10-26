@@ -141,7 +141,8 @@ public class Component {
         mValidationErrors = validationErrors;
     }
 
-    public Component(Position p,Properties pr){
+    public Component(Position p,Properties pr,String name){
+        mName=name;
         mType= "org.apache.nifi.amqp.processors.ConsumeAMQP";
         mState="STOPPED";
         mSupportsParallelProcessing=true;

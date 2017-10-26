@@ -53,9 +53,9 @@ public class Consumer {
         mPosition = position;
     }
 
-   public Consumer(Position p,Properties pr ){
+   public Consumer(Position p,Properties pr,String name ){
         revision= new Revision();
-        mComponent=new Component(p,pr);
+        mComponent=new Component(p,pr,name);
         mPermissions= new Permissions();
         mPosition=p;
         mInputRequirement="INPUT_FORBIDDEN";
