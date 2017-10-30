@@ -80,12 +80,12 @@ public class Connection {
         mZIndex = zIndex;
     }
 
-    public Connection(String d_id,String d_type,String d_groupId,String d_name,String s_id,String s_type,String s_groupId,String s_name){
+    public Connection(String d_id,String d_type,String d_groupId,String d_name,String s_id,String s_type,String s_groupId,String s_name,String Relations){
         this.mLabelIndex=1l;
         this.mZIndex=0l;
         Destination destination = new Destination(d_id,d_type,d_groupId,d_name);
         Source source= new Source(s_id,s_type,s_groupId,s_name);
-        mComponent= new Component(destination,source);
+        mComponent= new Component(destination,source,Relations);
         mRevision= new Revision();
 
     }

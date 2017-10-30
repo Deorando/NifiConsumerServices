@@ -1,6 +1,7 @@
 
 package Connection;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
@@ -130,7 +131,7 @@ public class Component {
         mZIndex = zIndex;
     }
 
-    public Component(Destination d, Source s){
+    public Component(Destination d, Source s,String Relations){
         this.mName=null;
         this.mLabelIndex=1l;
         this.mZIndex=0l;
@@ -139,8 +140,14 @@ public class Component {
         this.mFlowFileExpiration="0 sec";
         mDestination= d;
         mSource=s;
+        List<String> l_s= new ArrayList<String>();
+        l_s.add(Relations);
+        setSelectedRelationships(l_s);
+        setAvailableRelationships(l_s);
+
 
 
     }
+
 
 }
