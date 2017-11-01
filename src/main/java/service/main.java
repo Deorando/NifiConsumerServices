@@ -10,13 +10,11 @@ import Put_hdfs_hour.HProperties;
 import Put_hdfs_hour.PutHdfsHour;
 import ReaderGroup.RDProcessor;
 import ReaderGroup.ReadProcessGroup;
+import Update.Update;
 import com.google.gson.Gson;
-import controller.ConsumerSend;
-import getHdfsDay.GDConfig;
 import getHdfsDay.GDPosition;
 import getHdfsDay.GDProperties;
 import getHdfsDay.GetHdfsDay;
-import nifi_objects.Consumer_model.Component;
 import nifi_objects.Consumer_model.Consumer;
 import nifi_objects.Consumer_model.Position;
 import nifi_objects.Consumer_model.Properties;
@@ -25,8 +23,8 @@ import processGroup.ProcessGroup;
 
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
@@ -35,135 +33,216 @@ import java.util.List;
 
 public class main {
     static ReadProcessGroup rpg = null;
+    static List<String> process_group_url = new ArrayList<String>();
+
+
+    public static void createConnection() throws Exception {
+        int anz = 0;
+        List<String> process_group_url = new ArrayList<String>();
+        process_group_url.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/595d04a7-015f-1000-0000-00007587fed5/processors");
+        process_group_url.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/595d0518-015f-1000-0000-0000374b06f1/processors");
+        process_group_url.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/595d0587-015f-1000-0000-0000718eef50/processors");
+        process_group_url.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/045e3481-a47b-1778-8dcd-a66f603c162a/processors");
+        process_group_url.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/2a873c97-fc86-1739-981c-0bcd9e3498b5/processors");
+        process_group_url.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/bb9338d3-3ebe-150f-beb3-bf693fa7678c/processors");
+        process_group_url.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/8d2030e0-fcb9-15f8-b6b1-53eb50346872/processors");
+        process_group_url.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/a8b43aeb-5944-1d3d-8c1b-6cded7c6f05a/processors");
+        process_group_url.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/1c493853-2b23-122e-ba8c-c905608b0806/processors");
+        process_group_url.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/08113ca4-dd7c-135e-9b6c-2a20f51f8cd8/processors");
+        process_group_url.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/3c323317-fb46-173d-aeb1-b95188af5149/processors");
+        process_group_url.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/8d543e88-9b32-1944-aebc-b0d9f90a21c3/processors");
+
+        while (anz < process_group_url.size()) {
+
+            // URL oracle = new URL("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/595d0518-015f-1000-0000-0000374b06f1/processors");
+            URL oracle = new URL(process_group_url.get(anz));
+            BufferedReader in = new BufferedReader(new InputStreamReader(oracle.openStream()));
+            String json = "";
+            String inputLine = "";
+            while ((inputLine = in.readLine()) != null) {
+                json += inputLine;
+            }
+            in.close();
+            Gson gson = new Gson();
+            rpg = gson.fromJson(json, ReadProcessGroup.class);
+            for (int z = 0; z < rpg.getProcessors().size(); z++) {
+                String schema_name = "";
+                if (rpg.getProcessors().get(z).getComponent().getName().contains("Consumer_")) {
+                    schema_name = rpg.getProcessors().get(z).getComponent().getName().substring(9);
+                    List<RDProcessor> familie = getFamilie(schema_name);
+                    String consumer_name = "";
+                    String consumer_id = "";
+                    String consumer_groupId = "";
+                    String merge_hour_name = "";
+                    String merge_hour_id = "";
+                    String merge_hour_groupId = "";
+                    String put_hour_name = "";
+                    String put_hour_id = "";
+                    String put_hour_groupId = "";
+                    String put_fail = "";
+                    String put_error = "";
+                    String put_error_name = "";
+                    String put_error_id = "";
+                    String put_error_groupId = "";
+                    String put_failure_name = "";
+                    String put_failure_id = "";
+                    String put_failure_groupId = "";
+                    String get_name = "";
+                    String get_id = "";
+                    String get_groupId = "";
+
+                    String merge_day_name = "";
+                    String merge_day_id = "";
+                    String merge_day_groupId = "";
+                    String put_day_name = "";
+                    String put_day_id = "";
+                    String put_day_groupId = "";
+
+                    for (int j = 0; j < familie.size(); j++) {
+
+                        if (familie.get(j).getComponent().getName().equals("Consumer_" + schema_name)) {
+                            consumer_name = familie.get(j).getComponent().getName();
+                            consumer_id = familie.get(j).getComponent().getId();
+                        }
+                        if (familie.get(j).getComponent().getName().equals("MergeContent_" + schema_name + "_hour")) {
+                            merge_hour_name = familie.get(j).getComponent().getName();
+                            merge_hour_id = familie.get(j).getComponent().getId();
+                            merge_hour_groupId = familie.get(j).getComponent().getParentGroupId();
+                        }
+                        if (familie.get(j).getComponent().getName().equals("PutHdfs_" + schema_name + "_error")) {
+                            put_error_name = familie.get(j).getComponent().getName();
+                            put_error_id = familie.get(j).getComponent().getId();
+                            put_error_groupId = familie.get(j).getComponent().getParentGroupId();
+
+                        }
+                        if (familie.get(j).getComponent().getName().equals("PutHdfs_" + schema_name + "_hour")) {
+                            put_hour_name = familie.get(j).getComponent().getName();
+                            put_hour_id = familie.get(j).getComponent().getId();
+                            put_hour_groupId = familie.get(j).getComponent().getParentGroupId();
+
+                        }
+                        if (familie.get(j).getComponent().getName().equals("PutHdfs_" + schema_name + "_failure")) {
+                            put_failure_name = familie.get(j).getComponent().getName();
+                            put_failure_id = familie.get(j).getComponent().getId();
+                            put_failure_groupId = familie.get(j).getComponent().getParentGroupId();
+
+                        }
+                        if (familie.get(j).getComponent().getName().equals("GetHdfs_" + schema_name + "_day")) {
+                            get_name = familie.get(j).getComponent().getName();
+                            get_id = familie.get(j).getComponent().getId();
+                            get_groupId = familie.get(j).getComponent().getParentGroupId();
+
+                        }
+                        if (familie.get(j).getComponent().getName().equals("MergeContent_" + schema_name + "_day")) {
+                            merge_day_name = familie.get(j).getComponent().getName();
+                            merge_day_id = familie.get(j).getComponent().getId();
+                            merge_day_groupId = familie.get(j).getComponent().getParentGroupId();
+
+                        }
+                        if (familie.get(j).getComponent().getName().equals("PutHdfs_" + schema_name + "_day")) {
+                            put_day_name = familie.get(j).getComponent().getName();
+                            put_day_id = familie.get(j).getComponent().getId();
+                            put_day_groupId = familie.get(j).getComponent().getParentGroupId();
+
+                        }
+
+                    }
+                    SendConnection(merge_hour_id, "PROCESSOR", merge_hour_groupId, merge_hour_name, consumer_id, "PROCESSOR", merge_hour_groupId, consumer_name, "success");
+                    SendConnection(put_error_id, "PROCESSOR", put_error_groupId, put_error_name, merge_hour_id, "PROCESSOR", merge_hour_groupId, merge_hour_name, "failure");
+                    SendConnection(put_hour_id, "PROCESSOR", put_hour_groupId, put_hour_name, merge_hour_id, "PROCESSOR", merge_hour_groupId, merge_hour_name, "merged");
+                    SendConnection(put_error_id, "PROCESSOR", put_error_groupId, put_error_name, put_hour_id, "PROCESSOR", put_hour_groupId, put_hour_name, "failure");
+                    SendConnection(merge_day_id, "PROCESSOR", merge_day_groupId, merge_day_name, get_id, "PROCESSOR", get_groupId, get_name, "success");
+                    SendConnection(put_error_id, "PROCESSOR", put_error_groupId, put_error_name, merge_day_id, "PROCESSOR", merge_day_groupId, merge_day_name, "failure");
+                    SendConnection(put_day_id, "PROCESSOR", put_day_groupId, put_day_name, merge_day_id, "PROCESSOR", merge_day_groupId, merge_day_name, "merged");
+                    SendConnection(put_error_id, "PROCESSOR", put_error_groupId, put_error_name, put_day_id, "PROCESSOR", put_day_groupId, put_day_name, "failure");
+                    SendConnection(put_failure_id, "PROCESSOR", put_failure_groupId, put_failure_name, put_error_id, "PROCESSOR", put_error_groupId, put_error_name, "failure");
+                    SendConnection(put_failure_id, "PROCESSOR", put_failure_groupId, put_failure_name, put_failure_id, "PROCESSOR", put_failure_groupId, put_failure_name, "failure");
+                }
+            }
+            anz = anz + 1;
+        }
+
+
+    }
 
     public static void main(String[] args) throws Exception {
         ReadDWH_usage();
-
-        URL oracle = new URL("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/045e3481-a47b-1778-8dcd-a66f603c162a/processors");
-        BufferedReader in = new BufferedReader(new InputStreamReader(oracle.openStream()));
-        String json = "";
-        String inputLine = "";
-        String dummy = "";
-        while ((inputLine = in.readLine()) != null) {
-            json += inputLine;
-        }
-        in.close();
-       // System.out.println("json: " + json.toString());
-        Gson gson = new Gson();
-
-        rpg = gson.fromJson(json, ReadProcessGroup.class);
-        // System.out.println("rpg: " + rpg.getProcessors().size());
-        //SendConnection("a","a","a","a","a","a","a","a");
+        ReadDWH_user();
+        ReadDWH_purchase();
+        createConnection();
+        updateProcessors();
 
 
-        for (int z = 0; z < rpg.getProcessors().size(); z++) {
-            String schema_name = "";
-            if (rpg.getProcessors().get(z).getComponent().getName().contains("Consumer_")) {
-                //TODO find MergeContent withe same name as Consumer
-                schema_name = rpg.getProcessors().get(z).getComponent().getName().substring(9);
-                //System.out.print("schema_name: "+schema_name);
-                List<RDProcessor> familie = getFamilie(schema_name);
-                String consumer_name="";
-                String consumer_id="";
-                String consumer_groupId="";
-                String merge_hour_name="";
-                String merge_hour_id="";
-                String merge_hour_groupId="";
-                String put_hour_name="";
-                String put_hour_id="";
-                String put_hour_groupId="";
-                String put_fail="";
-                String put_error="";
-                String put_error_name="";
-                String put_error_id="";
-                String put_error_groupId="";
-                String put_failure_name="";
-                String put_failure_id="";
-                String put_failure_groupId="";
-                String get_name="";
-                String get_id="";
-                String get_groupId="";
+    }
+    public static void updateProcessors()throws Exception{
+        int anz=0;
+        while (anz < process_group_url.size()) {
+            //URL oracle = new URL("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/595d0518-015f-1000-0000-0000374b06f1/processors");
+            URL oracle = new URL(process_group_url.get(anz));
+            BufferedReader in = new BufferedReader(new InputStreamReader(oracle.openStream()));
+            String json = "";
+            String inputLine = "";
+            String dummy = "";
+            while ((inputLine = in.readLine()) != null) {
+                json += inputLine;
+            }
+            in.close();
 
-                String merge_day_name="";
-                String merge_day_id="";
-                String merge_day_groupId="";
-                String put_day_name="";
-                String put_day_id="";
-                String put_day_groupId="";
+            Gson gson = new Gson();
 
-                for (int j = 0; j < familie.size(); j++) {
+            rpg = gson.fromJson(json, ReadProcessGroup.class);
+            System.out.println("rpg: " + rpg.getProcessors().size());
+            String id = "";
+            String name = "";
+            String state = "STOPPED";
+            String clientID = "";
+            long version = 0l;
+            String data = "";
+            String url = "";
 
-                    if (familie.get(j).getComponent().getName().equals("Consumer_" + schema_name)) {
-                        consumer_name = familie.get(j).getComponent().getName();
-                        consumer_id = familie.get(j).getComponent().getId();
-                    }
-                    if (familie.get(j).getComponent().getName().equals("MergeContent_" + schema_name + "_hour")) {
-                        merge_hour_name = familie.get(j).getComponent().getName();
-                        merge_hour_id = familie.get(j).getComponent().getId();
-                        merge_hour_groupId = familie.get(j).getComponent().getParentGroupId();
-                    }
-                    if (familie.get(j).getComponent().getName().equals("PutHdfs_" + schema_name + "_error")){
-                        put_error_name = familie.get(j).getComponent().getName();
-                        put_error_id = familie.get(j).getComponent().getId();
-                        put_error_groupId = familie.get(j).getComponent().getParentGroupId();
-
-                    }
-                    if (familie.get(j).getComponent().getName().equals("PutHdfs_" + schema_name + "_hour")){
-                        put_hour_name = familie.get(j).getComponent().getName();
-                        put_hour_id = familie.get(j).getComponent().getId();
-                        put_hour_groupId = familie.get(j).getComponent().getParentGroupId();
-
-                    }
-                    if (familie.get(j).getComponent().getName().equals("PutHdfs_" + schema_name + "_failure")){
-                        put_failure_name = familie.get(j).getComponent().getName();
-                        put_failure_id = familie.get(j).getComponent().getId();
-                        put_failure_groupId = familie.get(j).getComponent().getParentGroupId();
-
-                    }
-                    if (familie.get(j).getComponent().getName().equals("GetHdfs_" + schema_name + "_day")){
-                        get_name = familie.get(j).getComponent().getName();
-                        get_id = familie.get(j).getComponent().getId();
-                        get_groupId = familie.get(j).getComponent().getParentGroupId();
-
-                    }
-                    if (familie.get(j).getComponent().getName().equals("MergeContent" + schema_name + "_day")){
-                        merge_day_name = familie.get(j).getComponent().getName();
-                        merge_day_id = familie.get(j).getComponent().getId();
-                        merge_day_groupId = familie.get(j).getComponent().getParentGroupId();
-
-                    }
-                    if (familie.get(j).getComponent().getName().equals("PutHdfs_" + schema_name + "_day")){
-                        put_day_name = familie.get(j).getComponent().getName();
-                        put_day_id = familie.get(j).getComponent().getId();
-                        put_day_groupId = familie.get(j).getComponent().getParentGroupId();
-
-                    }
+            //rpg.getProcessors().size()
+            for (int z = 0; z < rpg.getProcessors().size(); z++) {
+                if (rpg.getProcessors().get(z).getComponent().getName().contains("MergeContent")) {
+                    name = rpg.getProcessors().get(z).getComponent().getName();
+                    id = rpg.getProcessors().get(z).getComponent().getId();
+                    version = rpg.getProcessors().get(z).getRevision().getVersion().longValue();
+                    url = rpg.getProcessors().get(z).getUri();
+                    Update update = new Update(id, name, state, clientID, version, "original");
+                    SendUpdate(update, url);
 
                 }
-                SendConnection(merge_hour_id, "PROCESSOR", merge_hour_groupId, merge_hour_name, consumer_id, "PROCESSOR", merge_hour_groupId, consumer_name, "success");
-                SendConnection(put_error_id,"PROCESSOR",put_error_groupId,put_error_name,merge_hour_id,"PROCESSOR",merge_hour_groupId,merge_hour_name,"failure");
-                SendConnection(put_hour_id,"PROCESSOR",put_hour_groupId,put_hour_name,merge_hour_id, "PROCESSOR", merge_hour_groupId, merge_hour_name,"merged");
-                SendConnection(put_error_id,"PROCESSOR",put_error_groupId,put_error_name,put_hour_id,"PROCESSOR",put_hour_groupId,put_hour_name,"failure");
-                SendConnection(merge_day_id,"PROCESSOR",merge_day_groupId,merge_day_name,get_id,"PROCESSOR",get_groupId,get_name,"success");
-                SendConnection(put_error_id,"PROCESSOR",put_error_groupId,put_error_name,merge_day_id,"PROCESSOR",merge_day_groupId,merge_day_name,"failure");
-                SendConnection(put_day_id,"PROCESSOR",put_day_groupId,put_day_name,merge_day_id,"PROCESSOR",merge_day_groupId,merge_day_name,"merged");
-                SendConnection(put_error_id,"PROCESSOR",put_error_groupId,put_error_name,put_day_id,"PROCESSOR",put_day_groupId,put_day_name,"failure");
-                //String d_id,String d_type,String d_groupId,String d_name,
-                // String s_id,String s_type,String s_groupId,String s_name,String Relations
+                if (rpg.getProcessors().get(z).getComponent().getName().contains("PutHdfs")) {
+                    name = rpg.getProcessors().get(z).getComponent().getName();
+                    id = rpg.getProcessors().get(z).getComponent().getId();
+                    version = rpg.getProcessors().get(z).getRevision().getVersion().longValue();
+                    url = rpg.getProcessors().get(z).getUri();
+                    Update update = new Update(id, name, state, clientID, version, "success");
+                    SendUpdate(update, url);
 
-
-
-
+                }
+            /*
+            if(rpg.getProcessors().get(z).getComponent().getName().contains("Consumer")) {
+                name = rpg.getProcessors().get(z).getComponent().getName();
+                id = rpg.getProcessors().get(z).getComponent().getId();
+                version = rpg.getProcessors().get(z).getRevision().getVersion().longValue();
+                url=rpg.getProcessors().get(z).getUri();
+                Update update= new Update(id, name,state,clientID,version,"success");
+                SendUpdate(update,url);
 
             }
+           /* if(rpg.getProcessors().get(z).getComponent().getName().contains("Get")) {
+                name = rpg.getProcessors().get(z).getComponent().getName();
+                id = rpg.getProcessors().get(z).getComponent().getId();
+                version = rpg.getProcessors().get(z).getRevision().getVersion().longValue();
+                url=rpg.getProcessors().get(z).getUri();
+                Update update= new Update(id, name,state,clientID,version,"success");
+                SendUpdate(update,url);
 
-
+            }
+            */
+            }
+            anz = anz + 1;
         }
-        System.out.println("dsfsd");
-
-
-
-
     }
 
     private static List<RDProcessor> getConsumer(String schema_name) {
@@ -265,15 +344,15 @@ public class main {
             while ((inputLine = in.readLine()) != null) {
                 if (inputLine.contains("purchase_")) {
                     System.out.println(inputLine);
-                    SendConsumer("Consumer_" + inputLine, "stg" + inputLine, 10, (10) + i_x, l_url_purchase.get(k));
+                    SendConsumer("Consumer_" + inputLine, "stg_" + inputLine, 10, (10) + i_x, l_url_purchase.get(k));
                     System.out.println("k: " + k);
-                    SendMerge("MergeContent" + inputLine, 600.0, (10) + i_x, "* 50 * * * ?", "CRON_DRIVEN", l_url_purchase.get(k));
-                    SendMerge("MergeContent" + inputLine + "Day", 600.0, 400 + i_x, "10 sec", "TIMER_DRIVEN", l_url_purchase.get(k));
-                    SendPutHdfs("PutHdfs" + inputLine + "Hour", 1200, (10) + i_x, "/user/talend/staging/" + inputLine, l_url_purchase.get(k));
-                    SendPutHdfs("PutHdfs" + inputLine + "Error", 600.0, (200) + i_x, "/user/talend/logging/nifi/" + inputLine + "_batch", l_url_purchase.get(k));
-                    SendPutHdfs("PutHdfsPurchase" + inputLine + "Failure", 1200, (200) + i_x, "/user/talend/logging/nifi/" + inputLine, l_url_purchase.get(k));
-                    SendPutHdfs("PutHdfs" + inputLine + "Day", 1200, (400) + i_x, "/user/talend/logging/nifi/" + inputLine, l_url_purchase.get(k));
-                    SendGetHdfsDay("GetHdfs" + inputLine + "Day", 10, (400) + i_x, "/user/talend/staging/" + inputLine + "/merge", "* 50 * * * ?", "CRON_DRIVEN", l_url_purchase.get(k));
+                    SendMerge("MergeConten_t" + inputLine, 600.0, (10) + i_x, "* 50 * * * ?", "CRON_DRIVEN", l_url_purchase.get(k));
+                    SendMerge("MergeContent_" + inputLine + "Day", 600.0, 400 + i_x, "10 sec", "TIMER_DRIVEN", l_url_purchase.get(k));
+                    SendPutHdfs("PutHdfs_" + inputLine + "Hour", 1200, (10) + i_x, "/user/talend/staging/" + inputLine+"/merge", l_url_purchase.get(k));
+                    SendPutHdfs("PutHdfs_" + inputLine + "Error", 600.0, (200) + i_x, "/user/talend/logging/nifi/" + inputLine + "_batch", l_url_purchase.get(k));
+                    SendPutHdfs("PutHdfs_" + inputLine + "Failure", 1200, (200) + i_x, "/user/talend/logging/nifi/" + inputLine+ "_batch", l_url_purchase.get(k));
+                    SendPutHdfs("PutHdfs_" + inputLine + "Day", 1200, (400) + i_x, "/user/talend/staging/" + inputLine+"/merge", l_url_purchase.get(k));
+                    SendGetHdfsDay("GetHdfs_" + inputLine + "Day", 10, (400) + i_x, "/user/talend/staging/" + inputLine + "/merge", "* 50 * * * ?", "CRON_DRIVEN", l_url_purchase.get(k));
                     i_x = i_x + 1000;
                     j_y = j_y + 1000;
                 }
@@ -304,14 +383,13 @@ public class main {
             while ((inputLine = in.readLine()) != null) {
                 if (inputLine.contains("usage_")) {
                     System.out.println(inputLine);
-                    SendConsumer("Consumer_" + inputLine, "stg" + inputLine, 10, (10) + i_x, l_url_usage.get(k));
-                    System.out.println("k: " + k);
+                    SendConsumer("Consumer_" + inputLine, "stg_" + inputLine, 10, (10) + i_x, l_url_usage.get(k));
                     SendMerge("MergeContent_" + inputLine + "_hour", 600.0, (10) + i_x, "* 50 * * * ?", "CRON_DRIVEN", l_url_usage.get(k));
-                    SendMerge("MergeContent" + inputLine + "_day", 600.0, 400 + i_x, "10 sec", "TIMER_DRIVEN", l_url_usage.get(k));
+                    SendMerge("MergeContent_" + inputLine + "_day", 600.0, 400 + i_x, "10 sec", "TIMER_DRIVEN", l_url_usage.get(k));
                     SendPutHdfs("PutHdfs_" + inputLine + "_hour", 1200, (10) + i_x, "/user/talend/staging/" + inputLine, l_url_usage.get(k));
                     SendPutHdfs("PutHdfs_" + inputLine + "_error", 600.0, (200) + i_x, "/user/talend/logging/nifi/" + inputLine + "_batch", l_url_usage.get(k));
-                    SendPutHdfs("PutHdfs_" + inputLine + "_failure", 1200, (200) + i_x, "/user/talend/logging/nifi/" + inputLine, l_url_usage.get(k));
-                    SendPutHdfs("PutHdfs_" + inputLine + "_day", 1200, (400) + i_x, "/user/talend/logging/nifi/" + inputLine, l_url_usage.get(k));
+                    SendPutHdfs("PutHdfs_" + inputLine + "_failure", 1200, (200) + i_x, "/user/talend/logging/nifi/" + inputLine+"_batch", l_url_usage.get(k));
+                    SendPutHdfs("PutHdfs_" + inputLine + "_day", 1200, (400) + i_x, "/user/talend/staging/" + inputLine+"/merge", l_url_usage.get(k));
                     SendGetHdfsDay("GetHdfs_" + inputLine + "_day", 10, (400) + i_x, "/user/talend/staging/" + inputLine + "/merge", "* 50 * * * ?", "CRON_DRIVEN", l_url_usage.get(k));
                     i_x = i_x + 1000;
                     j_y = j_y + 1000;
@@ -343,16 +421,14 @@ public class main {
             in = new BufferedReader(new InputStreamReader(oracle.openStream()));
             while ((inputLine = in.readLine()) != null) {
                 if (inputLine.contains("user_")) {
-                    System.out.println(inputLine);
-                    SendConsumer("Consumer_" + inputLine, "stg" + inputLine, 10, (10) + i_x, l_url_user.get(k));
-                    System.out.println("k: " + k);
-                    SendMerge("MergeContent" + inputLine, 600.0, (10) + i_x, "* 50 * * * ?", "CRON_DRIVEN", l_url_user.get(k));
-                    SendMerge("MergeContent" + inputLine + "Day", 600.0, 400 + i_x, "10 sec", "TIMER_DRIVEN", l_url_user.get(k));
-                    SendPutHdfs("PutHdfs" + inputLine + "Hour", 1200, (10) + i_x, "/user/talend/staging/" + inputLine, l_url_user.get(k));
-                    SendPutHdfs("PutHdfs" + inputLine + "Error", 600.0, (200) + i_x, "/user/talend/logging/nifi/" + inputLine + "_batch", l_url_user.get(k));
-                    SendPutHdfs("PutHdfsPurchase" + inputLine + "Failure", 1200, (200) + i_x, "/user/talend/logging/nifi/" + inputLine, l_url_user.get(k));
-                    SendPutHdfs("PutHdfs" + inputLine + "Day", 1200, (400) + i_x, "/user/talend/logging/nifi/" + inputLine, l_url_user.get(k));
-                    SendGetHdfsDay("GetHdfs" + inputLine + "Day", 10, (400) + i_x, "/user/talend/staging/" + inputLine + "/merge", "* 50 * * * ?", "CRON_DRIVEN", l_url_user.get(k));
+                    SendConsumer("Consumer_" + inputLine, "stg_" + inputLine, 10, (10) + i_x, l_url_user.get(k));
+                    SendMerge("MergeContent_" + inputLine, 600.0, (10) + i_x, "* 50 * * * ?", "CRON_DRIVEN", l_url_user.get(k));
+                    SendMerge("MergeContent_" + inputLine + "Day", 600.0, 400 + i_x, "10 sec", "TIMER_DRIVEN", l_url_user.get(k));
+                    SendPutHdfs("PutHdfs_" + inputLine + "Hour", 1200, (10) + i_x, "/user/talend/staging/" + inputLine, l_url_user.get(k));
+                    SendPutHdfs("PutHdfs_" + inputLine + "Error", 600.0, (200) + i_x, "/user/talend/logging/nifi/" + inputLine + "_batch", l_url_user.get(k));
+                    SendPutHdfs("PutHdfs_" + inputLine + "Failure", 1200, (200) + i_x, "/user/talend/logging/nifi/" + inputLine+ "_batch", l_url_user.get(k));
+                    SendPutHdfs("PutHdfs_" + inputLine + "Day", 1200, (400) + i_x, "/user/talend/staging/" + inputLine+"/merge", l_url_user.get(k));
+                    SendGetHdfsDay("GetHdfs_" + inputLine + "Day", 10, (400) + i_x, "/user/talend/staging/" + inputLine + "/merge", "* 50 * * * ?", "CRON_DRIVEN", l_url_user.get(k));
                     i_x = i_x + 1000;
                     j_y = j_y + 1000;
                 }
@@ -377,7 +453,7 @@ public class main {
 
     }
     public static void SendConnection(String d_id,String d_type,String d_groupId,String d_name,String s_id,String s_type,String s_groupId,String s_name,String Relations)throws Exception{
-        String url="http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/045e3481-a47b-1778-8dcd-a66f603c162a/connections";
+        String url="http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/595d0518-015f-1000-0000-0000374b06f1/connections";
         String data;
         Connection connection= new Connection(d_id,d_type,d_groupId,d_name,s_id,s_type,s_groupId,s_name,Relations);
         Gson gson = new Gson();
@@ -399,6 +475,7 @@ public class main {
         http.setUrl(url);
         http.setPostData(data);
         http.sendingPostRequest();
+
     }
 
     public static void SendPutHdfs(String name, double pos_x, double pos_y, String directory, String url) throws Exception {
@@ -446,6 +523,34 @@ public class main {
         data = gson.toJson(pg);
         System.out.println("ProcessGroup: " + data);
         //SendHttp(gson, data, url);
+    }
+    public static void SendUpdate(Update update,String url) throws Exception {
+        Gson gson = new Gson();
+        String data;
+        data = gson.toJson(update);
+        System.out.println(data);
+        SendHttpPut(gson,data,url);
+
+
+
+
+    }
+
+    private static void SendHttpPut(Gson gson, String data, String url)throws Exception {
+        String co = data;
+        URL url_n = new URL(url);
+        HttpURLConnection connection = (HttpURLConnection) url_n.openConnection();
+        connection.setRequestMethod("PUT");
+        connection.setDoOutput(true);
+        connection.setRequestProperty("Content-Type", "application/json");
+        connection.setRequestProperty("Accept", "application/json");
+        OutputStreamWriter osw = new OutputStreamWriter(connection.getOutputStream());
+        osw.write(data);
+        osw.flush();
+        osw.close();
+        System.err.println(connection.getResponseCode());
+
+
     }
 
 
