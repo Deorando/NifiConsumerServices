@@ -4,6 +4,7 @@ import Connection.Connection;
 import Merge_model.JsonMerge;
 import Merge_model.MPosition;
 import Merge_model.MProperties;
+import ProcessGroupUrl.ProcessGroupUrl;
 import Put_hdfs_hour.HConfig;
 import Put_hdfs_hour.HPosition;
 import Put_hdfs_hour.HProperties;
@@ -34,6 +35,7 @@ import java.util.List;
 public class main {
     static ReadProcessGroup rpg = null;
     static List<String> process_group_url = new ArrayList<String>();
+    static List<String> process_group_url_con = new ArrayList<String>();
 
 
     public static void createConnection() throws Exception {
@@ -52,8 +54,56 @@ public class main {
         process_group_url.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/3c323317-fb46-173d-aeb1-b95188af5149/processors");
         process_group_url.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/8d543e88-9b32-1944-aebc-b0d9f90a21c3/processors");
 
-        while (anz < process_group_url.size()) {
+       process_group_url.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/7d50abf1-015f-1000-0000-0000777ee6c7/processors");
+        process_group_url.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/7d50c50d-015f-1000-0000-000009b10c20/processors");
+        process_group_url.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/7d50ec3d-015f-1000-0000-00004253cb3a/processors");
+        process_group_url.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/7d510cc8-015f-1000-0000-000027020cb9/processors");
 
+
+       process_group_url.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/7d64b727-015f-1000-ffff-ffff86968c13/processors");
+        process_group_url.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/7d64f03f-015f-1000-0000-000067f59e94/processors");
+        process_group_url.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/7d64cf03-015f-1000-0000-0000526b1b0a/processors");
+        process_group_url.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/7d650a53-015f-1000-0000-00007aa1797c/processors");
+
+        process_group_url.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/7d6eead9-015f-1000-ffff-ffff8b3e3e3b/processors");
+        process_group_url.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/7d6f00df-015f-1000-ffff-ffff89d4f62f/processors");
+        process_group_url.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/7d6f4046-015f-1000-0000-00001e6bac70/processors");
+        process_group_url.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/7d6f5a50-015f-1000-0000-000078e07790/processors");
+
+
+
+
+        List<String> process_group_url_con = new ArrayList<String>();
+       process_group_url_con.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/595d04a7-015f-1000-0000-00007587fed5/connections");
+        process_group_url_con.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/595d0518-015f-1000-0000-0000374b06f1/connections");
+        process_group_url_con.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/595d0587-015f-1000-0000-0000718eef50/connections");
+        process_group_url_con.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/045e3481-a47b-1778-8dcd-a66f603c162a/connections");
+        process_group_url_con.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/2a873c97-fc86-1739-981c-0bcd9e3498b5/connections");
+        process_group_url_con.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/bb9338d3-3ebe-150f-beb3-bf693fa7678c/connections");
+        process_group_url_con.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/8d2030e0-fcb9-15f8-b6b1-53eb50346872/connections");
+        process_group_url_con.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/a8b43aeb-5944-1d3d-8c1b-6cded7c6f05a/connections");
+        process_group_url_con.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/1c493853-2b23-122e-ba8c-c905608b0806/connections");
+        process_group_url_con.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/08113ca4-dd7c-135e-9b6c-2a20f51f8cd8/connections");
+        process_group_url_con.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/3c323317-fb46-173d-aeb1-b95188af5149/connections");
+        process_group_url_con.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/8d543e88-9b32-1944-aebc-b0d9f90a21c3/connections");
+
+
+       process_group_url_con.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/7d50abf1-015f-1000-0000-0000777ee6c7/connections");
+         process_group_url_con.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/7d50c50d-015f-1000-0000-000009b10c20/connections");
+         process_group_url_con.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/7d50ec3d-015f-1000-0000-00004253cb3a/connections");
+         process_group_url_con.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/7d510cc8-015f-1000-0000-000027020cb9/connections");
+
+  process_group_url_con.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/7d64b727-015f-1000-ffff-ffff86968c13/connections");
+        process_group_url_con.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/7d64f03f-015f-1000-0000-000067f59e94/connections");
+        process_group_url_con.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/7d64cf03-015f-1000-0000-0000526b1b0a/connections");
+        process_group_url_con.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/7d650a53-015f-1000-0000-00007aa1797c/connections");
+
+        process_group_url_con.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/7d6eead9-015f-1000-ffff-ffff8b3e3e3b/connections");
+        process_group_url_con.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/7d6f00df-015f-1000-ffff-ffff89d4f62f/connections");
+        process_group_url_con.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/7d6f4046-015f-1000-0000-00001e6bac70/connections");
+        process_group_url_con.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/7d6f5a50-015f-1000-0000-000078e07790/connections");
+
+        while (anz < process_group_url.size()) {
             // URL oracle = new URL("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/595d0518-015f-1000-0000-0000374b06f1/processors");
             URL oracle = new URL(process_group_url.get(anz));
             BufferedReader in = new BufferedReader(new InputStreamReader(oracle.openStream()));
@@ -90,7 +140,6 @@ public class main {
                     String get_name = "";
                     String get_id = "";
                     String get_groupId = "";
-
                     String merge_day_name = "";
                     String merge_day_id = "";
                     String merge_day_groupId = "";
@@ -137,6 +186,7 @@ public class main {
                             merge_day_name = familie.get(j).getComponent().getName();
                             merge_day_id = familie.get(j).getComponent().getId();
                             merge_day_groupId = familie.get(j).getComponent().getParentGroupId();
+                            System.out.println("merge_day_name: "+merge_day_name+" "+merge_day_id+" "+merge_day_groupId);
 
                         }
                         if (familie.get(j).getComponent().getName().equals("PutHdfs_" + schema_name + "_day")) {
@@ -147,16 +197,16 @@ public class main {
                         }
 
                     }
-                    SendConnection(merge_hour_id, "PROCESSOR", merge_hour_groupId, merge_hour_name, consumer_id, "PROCESSOR", merge_hour_groupId, consumer_name, "success");
-                    SendConnection(put_error_id, "PROCESSOR", put_error_groupId, put_error_name, merge_hour_id, "PROCESSOR", merge_hour_groupId, merge_hour_name, "failure");
-                    SendConnection(put_hour_id, "PROCESSOR", put_hour_groupId, put_hour_name, merge_hour_id, "PROCESSOR", merge_hour_groupId, merge_hour_name, "merged");
-                    SendConnection(put_error_id, "PROCESSOR", put_error_groupId, put_error_name, put_hour_id, "PROCESSOR", put_hour_groupId, put_hour_name, "failure");
-                    SendConnection(merge_day_id, "PROCESSOR", merge_day_groupId, merge_day_name, get_id, "PROCESSOR", get_groupId, get_name, "success");
-                    SendConnection(put_error_id, "PROCESSOR", put_error_groupId, put_error_name, merge_day_id, "PROCESSOR", merge_day_groupId, merge_day_name, "failure");
-                    SendConnection(put_day_id, "PROCESSOR", put_day_groupId, put_day_name, merge_day_id, "PROCESSOR", merge_day_groupId, merge_day_name, "merged");
-                    SendConnection(put_error_id, "PROCESSOR", put_error_groupId, put_error_name, put_day_id, "PROCESSOR", put_day_groupId, put_day_name, "failure");
-                    SendConnection(put_failure_id, "PROCESSOR", put_failure_groupId, put_failure_name, put_error_id, "PROCESSOR", put_error_groupId, put_error_name, "failure");
-                    SendConnection(put_failure_id, "PROCESSOR", put_failure_groupId, put_failure_name, put_failure_id, "PROCESSOR", put_failure_groupId, put_failure_name, "failure");
+                    SendConnection(merge_hour_id, "PROCESSOR", merge_hour_groupId, merge_hour_name, consumer_id, "PROCESSOR", merge_hour_groupId, consumer_name, "success", process_group_url_con.get(anz));
+                    SendConnection(put_error_id, "PROCESSOR", put_error_groupId, put_error_name, merge_hour_id, "PROCESSOR", merge_hour_groupId, merge_hour_name, "failure", process_group_url_con.get(anz));
+                    SendConnection(put_hour_id, "PROCESSOR", put_hour_groupId, put_hour_name, merge_hour_id, "PROCESSOR", merge_hour_groupId, merge_hour_name, "merged", process_group_url_con.get(anz));
+                    SendConnection(put_error_id, "PROCESSOR", put_error_groupId, put_error_name, put_hour_id, "PROCESSOR", put_hour_groupId, put_hour_name, "failure", process_group_url_con.get(anz));
+                    SendConnection(merge_day_id, "PROCESSOR", merge_day_groupId, merge_day_name, get_id, "PROCESSOR", get_groupId, get_name, "success", process_group_url_con.get(anz));
+                    SendConnection(put_error_id, "PROCESSOR", put_error_groupId, put_error_name, merge_day_id, "PROCESSOR", merge_day_groupId, merge_day_name, "failure", process_group_url_con.get(anz));
+                    SendConnection(put_day_id, "PROCESSOR", put_day_groupId, put_day_name, merge_day_id, "PROCESSOR", merge_day_groupId, merge_day_name, "merged", process_group_url_con.get(anz));
+                    SendConnection(put_error_id, "PROCESSOR", put_error_groupId, put_error_name, put_day_id, "PROCESSOR", put_day_groupId, put_day_name, "failure", process_group_url_con.get(anz));
+                    SendConnection(put_failure_id, "PROCESSOR", put_failure_groupId, put_failure_name, put_error_id, "PROCESSOR", put_error_groupId, put_error_name, "failure", process_group_url_con.get(anz));
+                    SendConnection(put_failure_id, "PROCESSOR", put_failure_groupId, put_failure_name, put_failure_id, "PROCESSOR", put_failure_groupId, put_failure_name, "failure", process_group_url_con.get(anz));
                 }
             }
             anz = anz + 1;
@@ -169,16 +219,138 @@ public class main {
         ReadDWH_usage();
         ReadDWH_user();
         ReadDWH_purchase();
+        ReadDWH_mail();
+        ReadDWH_subscription();
+        ReadDWH_commission();
         createConnection();
         updateProcessors();
 
 
     }
+
+    private static void ReadDWH_commission()throws Exception {
+        //URL oracle = new URL("http://dwh-schemaservice-stage.cyberservices.local:2876/schema-repo");
+        //BufferedReader in = new BufferedReader(new InputStreamReader(oracle.openStream()));
+        List<String> l_url_com = new ArrayList<String>();
+        l_url_com.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/7d6eead9-015f-1000-ffff-ffff8b3e3e3b/processors");
+        l_url_com.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/7d6f00df-015f-1000-ffff-ffff89d4f62f/processors");
+        l_url_com.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/7d6f4046-015f-1000-0000-00001e6bac70/processors");
+        l_url_com.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/7d6f5a50-015f-1000-0000-000078e07790/processors");
+
+        String inputLine;
+        int i_x = 1000;
+        int j_y = 1000;
+
+        BufferedReader in = null;
+
+        for (int k = 0; k < l_url_com.size(); k++) {
+            URL oracle = new URL("http://dwh-schemaservice-stage.cyberservices.local:2876/schema-repo");
+            in = new BufferedReader(new InputStreamReader(oracle.openStream()));
+            while ((inputLine = in.readLine()) != null) {
+                if (inputLine.contains("commission_")) {
+                    System.out.println(inputLine);
+                    SendConsumer("Consumer_" + inputLine, "stg_" + inputLine, 10, (10) + i_x, l_url_com.get(k));
+                    SendMerge("MergeContent_" + inputLine+ "_hour", 600.0, (10) + i_x, "* 50 * * * ?", "CRON_DRIVEN", l_url_com.get(k));
+                    SendMerge("MergeContent_" + inputLine + "_day", 600.0, 400 + i_x, "10 sec", "TIMER_DRIVEN", l_url_com.get(k));
+                    SendPutHdfs("PutHdfs_" + inputLine + "_hour", 1200, (10) + i_x, "/user/talend/staging/" + inputLine+"/merge", l_url_com.get(k));
+                    SendPutHdfs("PutHdfs_" + inputLine + "_error", 600.0, (200) + i_x, "/user/talend/logging/nifi/" + inputLine + "_batch", l_url_com.get(k));
+                    SendPutHdfs("PutHdfs_" + inputLine + "_failure", 1200, (200) + i_x, "/user/talend/logging/nifi/" + inputLine+ "_batch", l_url_com.get(k));
+                    SendPutHdfs("PutHdfs_" + inputLine + "_day", 1200, (400) + i_x, "/user/talend/staging/" + inputLine+"/merge", l_url_com.get(k));
+                    SendGetHdfsDay("GetHdfs_" + inputLine + "_day", 10, (400) + i_x, "/user/talend/staging/" + inputLine + "/merge", "* 50 * * * ?", "CRON_DRIVEN", l_url_com.get(k));
+                    i_x = i_x + 1000;
+                    j_y = j_y + 1000;
+                }
+
+            }
+        }
+        in.close();
+    }
+
+    private static void ReadDWH_subscription()throws Exception {
+        //URL oracle = new URL("http://dwh-schemaservice-stage.cyberservices.local:2876/schema-repo");
+        //BufferedReader in = new BufferedReader(new InputStreamReader(oracle.openStream()));
+        List<String> l_url_subs = new ArrayList<String>();
+        l_url_subs.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/7d64b727-015f-1000-ffff-ffff86968c13/processors");
+        l_url_subs.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/7d64f03f-015f-1000-0000-000067f59e94/processors");
+        l_url_subs.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/7d64cf03-015f-1000-0000-0000526b1b0a/processors");
+        l_url_subs.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/7d650a53-015f-1000-0000-00007aa1797c/processors");
+
+        String inputLine;
+        int i_x = 1000;
+        int j_y = 1000;
+
+        BufferedReader in = null;
+
+        for (int k = 0; k < l_url_subs.size(); k++) {
+            URL oracle = new URL("http://dwh-schemaservice-stage.cyberservices.local:2876/schema-repo");
+            in = new BufferedReader(new InputStreamReader(oracle.openStream()));
+            while ((inputLine = in.readLine()) != null) {
+                if (inputLine.contains("subscription_")) {
+                    System.out.println(inputLine);
+                    SendConsumer("Consumer_" + inputLine, "stg_" + inputLine, 10, (10) + i_x, l_url_subs.get(k));
+                    SendMerge("MergeContent_" + inputLine+ "_hour", 600.0, (10) + i_x, "* 50 * * * ?", "CRON_DRIVEN", l_url_subs.get(k));
+                    SendMerge("MergeContent_" + inputLine + "_day", 600.0, 400 + i_x, "10 sec", "TIMER_DRIVEN", l_url_subs.get(k));
+                    SendPutHdfs("PutHdfs_" + inputLine + "_hour", 1200, (10) + i_x, "/user/talend/staging/" + inputLine+"/merge", l_url_subs.get(k));
+                    SendPutHdfs("PutHdfs_" + inputLine + "_error", 600.0, (200) + i_x, "/user/talend/logging/nifi/" + inputLine + "_batch", l_url_subs.get(k));
+                    SendPutHdfs("PutHdfs_" + inputLine + "_failure", 1200, (200) + i_x, "/user/talend/logging/nifi/" + inputLine+ "_batch", l_url_subs.get(k));
+                    SendPutHdfs("PutHdfs_" + inputLine + "_day", 1200, (400) + i_x, "/user/talend/staging/" + inputLine+"/merge", l_url_subs.get(k));
+                    SendGetHdfsDay("GetHdfs_" + inputLine + "_day", 10, (400) + i_x, "/user/talend/staging/" + inputLine + "/merge", "* 50 * * * ?", "CRON_DRIVEN", l_url_subs.get(k));
+                    i_x = i_x + 1000;
+                    j_y = j_y + 1000;
+                }
+
+            }
+        }
+        in.close();
+    }
+
+
+    private static void ReadDWH_mail()throws Exception {
+        //URL oracle = new URL("http://dwh-schemaservice-stage.cyberservices.local:2876/schema-repo");
+        //BufferedReader in = new BufferedReader(new InputStreamReader(oracle.openStream()));
+        List<String> l_url_mail = new ArrayList<String>();
+        l_url_mail.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/7d50abf1-015f-1000-0000-0000777ee6c7/processors");
+        l_url_mail.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/7d50c50d-015f-1000-0000-000009b10c20/processors");
+        l_url_mail.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/7d50ec3d-015f-1000-0000-00004253cb3a/processors");
+        l_url_mail.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/7d510cc8-015f-1000-0000-000027020cb9/processors");
+
+        String inputLine;
+        int i_x = 1000;
+        int j_y = 1000;
+
+        BufferedReader in = null;
+
+        for (int k = 0; k < l_url_mail.size(); k++) {
+            URL oracle = new URL("http://dwh-schemaservice-stage.cyberservices.local:2876/schema-repo");
+            in = new BufferedReader(new InputStreamReader(oracle.openStream()));
+            while ((inputLine = in.readLine()) != null) {
+                if (inputLine.contains("mail_")) {
+                    System.out.println(inputLine);
+                    SendConsumer("Consumer_" + inputLine, "stg_" + inputLine, 10, (10) + i_x, l_url_mail.get(k));
+                    SendMerge("MergeContent_" + inputLine+ "_hour", 600.0, (10) + i_x, "* 50 * * * ?", "CRON_DRIVEN", l_url_mail.get(k));
+                    SendMerge("MergeContent_" + inputLine + "_day", 600.0, 400 + i_x, "10 sec", "TIMER_DRIVEN", l_url_mail.get(k));
+                    SendPutHdfs("PutHdfs_" + inputLine + "_hour", 1200, (10) + i_x, "/user/talend/staging/" + inputLine+"/merge", l_url_mail.get(k));
+                    SendPutHdfs("PutHdfs_" + inputLine + "_error", 600.0, (200) + i_x, "/user/talend/logging/nifi/" + inputLine + "_batch", l_url_mail.get(k));
+                    SendPutHdfs("PutHdfs_" + inputLine + "_failure", 1200, (200) + i_x, "/user/talend/logging/nifi/" + inputLine+ "_batch", l_url_mail.get(k));
+                    SendPutHdfs("PutHdfs_" + inputLine + "_day", 1200, (400) + i_x, "/user/talend/staging/" + inputLine+"/merge", l_url_mail.get(k));
+                    SendGetHdfsDay("GetHdfs_" + inputLine + "_day", 10, (400) + i_x, "/user/talend/staging/" + inputLine + "/merge", "* 50 * * * ?", "CRON_DRIVEN", l_url_mail.get(k));
+                    i_x = i_x + 1000;
+                    j_y = j_y + 1000;
+                }
+
+            }
+        }
+        in.close();
+    }
+
     public static void updateProcessors()throws Exception{
         int anz=0;
-        while (anz < process_group_url.size()) {
+        ProcessGroupUrl processGroupUrl= new ProcessGroupUrl();
+        List<String> process_group_list= processGroupUrl.getProcess_group_url();
+        System.out.println(process_group_list);
+        while (anz < process_group_list.size()) {
             //URL oracle = new URL("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/595d0518-015f-1000-0000-0000374b06f1/processors");
-            URL oracle = new URL(process_group_url.get(anz));
+            URL oracle = new URL(process_group_list.get(anz));
             BufferedReader in = new BufferedReader(new InputStreamReader(oracle.openStream()));
             String json = "";
             String inputLine = "";
@@ -308,7 +480,7 @@ public class main {
                 list_familie.add(rpg.getProcessors().get(z));
 
             }
-            if (name_komponent.equals("MergeContent" + schema_name + "_day")) {
+            if (name_komponent.equals("MergeContent_" + schema_name + "_day")) {
                 list_familie.add(rpg.getProcessors().get(z));
 
             }
@@ -346,13 +518,13 @@ public class main {
                     System.out.println(inputLine);
                     SendConsumer("Consumer_" + inputLine, "stg_" + inputLine, 10, (10) + i_x, l_url_purchase.get(k));
                     System.out.println("k: " + k);
-                    SendMerge("MergeConten_t" + inputLine, 600.0, (10) + i_x, "* 50 * * * ?", "CRON_DRIVEN", l_url_purchase.get(k));
-                    SendMerge("MergeContent_" + inputLine + "Day", 600.0, 400 + i_x, "10 sec", "TIMER_DRIVEN", l_url_purchase.get(k));
-                    SendPutHdfs("PutHdfs_" + inputLine + "Hour", 1200, (10) + i_x, "/user/talend/staging/" + inputLine+"/merge", l_url_purchase.get(k));
-                    SendPutHdfs("PutHdfs_" + inputLine + "Error", 600.0, (200) + i_x, "/user/talend/logging/nifi/" + inputLine + "_batch", l_url_purchase.get(k));
-                    SendPutHdfs("PutHdfs_" + inputLine + "Failure", 1200, (200) + i_x, "/user/talend/logging/nifi/" + inputLine+ "_batch", l_url_purchase.get(k));
-                    SendPutHdfs("PutHdfs_" + inputLine + "Day", 1200, (400) + i_x, "/user/talend/staging/" + inputLine+"/merge", l_url_purchase.get(k));
-                    SendGetHdfsDay("GetHdfs_" + inputLine + "Day", 10, (400) + i_x, "/user/talend/staging/" + inputLine + "/merge", "* 50 * * * ?", "CRON_DRIVEN", l_url_purchase.get(k));
+                    SendMerge("MergeContent_" + inputLine+ "_hour", 600.0, (10) + i_x, "* 50 * * * ?", "CRON_DRIVEN", l_url_purchase.get(k));
+                    SendMerge("MergeContent_" + inputLine + "_day", 600.0, 400 + i_x, "10 sec", "TIMER_DRIVEN", l_url_purchase.get(k));
+                    SendPutHdfs("PutHdfs_" + inputLine + "_hour", 1200, (10) + i_x, "/user/talend/staging/" + inputLine+"/merge", l_url_purchase.get(k));
+                    SendPutHdfs("PutHdfs_" + inputLine + "_error", 600.0, (200) + i_x, "/user/talend/logging/nifi/" + inputLine + "_batch", l_url_purchase.get(k));
+                    SendPutHdfs("PutHdfs_" + inputLine + "_failure", 1200, (200) + i_x, "/user/talend/logging/nifi/" + inputLine+ "_batch", l_url_purchase.get(k));
+                    SendPutHdfs("PutHdfs_" + inputLine + "_day", 1200, (400) + i_x, "/user/talend/staging/" + inputLine+"/merge", l_url_purchase.get(k));
+                    SendGetHdfsDay("GetHdfs_" + inputLine + "_day", 10, (400) + i_x, "/user/talend/staging/" + inputLine + "/merge", "* 50 * * * ?", "CRON_DRIVEN", l_url_purchase.get(k));
                     i_x = i_x + 1000;
                     j_y = j_y + 1000;
                 }
@@ -422,13 +594,13 @@ public class main {
             while ((inputLine = in.readLine()) != null) {
                 if (inputLine.contains("user_")) {
                     SendConsumer("Consumer_" + inputLine, "stg_" + inputLine, 10, (10) + i_x, l_url_user.get(k));
-                    SendMerge("MergeContent_" + inputLine, 600.0, (10) + i_x, "* 50 * * * ?", "CRON_DRIVEN", l_url_user.get(k));
-                    SendMerge("MergeContent_" + inputLine + "Day", 600.0, 400 + i_x, "10 sec", "TIMER_DRIVEN", l_url_user.get(k));
-                    SendPutHdfs("PutHdfs_" + inputLine + "Hour", 1200, (10) + i_x, "/user/talend/staging/" + inputLine, l_url_user.get(k));
-                    SendPutHdfs("PutHdfs_" + inputLine + "Error", 600.0, (200) + i_x, "/user/talend/logging/nifi/" + inputLine + "_batch", l_url_user.get(k));
-                    SendPutHdfs("PutHdfs_" + inputLine + "Failure", 1200, (200) + i_x, "/user/talend/logging/nifi/" + inputLine+ "_batch", l_url_user.get(k));
-                    SendPutHdfs("PutHdfs_" + inputLine + "Day", 1200, (400) + i_x, "/user/talend/staging/" + inputLine+"/merge", l_url_user.get(k));
-                    SendGetHdfsDay("GetHdfs_" + inputLine + "Day", 10, (400) + i_x, "/user/talend/staging/" + inputLine + "/merge", "* 50 * * * ?", "CRON_DRIVEN", l_url_user.get(k));
+                    SendMerge("MergeContent_" + inputLine+ "_hour", 600.0, (10) + i_x, "* 50 * * * ?", "CRON_DRIVEN", l_url_user.get(k));
+                    SendMerge("MergeContent_" + inputLine + "_day", 600.0, 400 + i_x, "10 sec", "TIMER_DRIVEN", l_url_user.get(k));
+                    SendPutHdfs("PutHdfs_" + inputLine + "_hour", 1200, (10) + i_x, "/user/talend/staging/" + inputLine, l_url_user.get(k));
+                    SendPutHdfs("PutHdfs_" + inputLine + "_error", 600.0, (200) + i_x, "/user/talend/logging/nifi/" + inputLine + "_batch", l_url_user.get(k));
+                    SendPutHdfs("PutHdfs_" + inputLine + "_failure", 1200, (200) + i_x, "/user/talend/logging/nifi/" + inputLine+ "_batch", l_url_user.get(k));
+                    SendPutHdfs("PutHdfs_" + inputLine + "_day", 1200, (400) + i_x, "/user/talend/staging/" + inputLine+"/merge", l_url_user.get(k));
+                    SendGetHdfsDay("GetHdfs_" + inputLine + "_day", 10, (400) + i_x, "/user/talend/staging/" + inputLine + "/merge", "* 50 * * * ?", "CRON_DRIVEN", l_url_user.get(k));
                     i_x = i_x + 1000;
                     j_y = j_y + 1000;
                 }
@@ -452,15 +624,17 @@ public class main {
 
 
     }
-    public static void SendConnection(String d_id,String d_type,String d_groupId,String d_name,String s_id,String s_type,String s_groupId,String s_name,String Relations)throws Exception{
-        String url="http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/595d0518-015f-1000-0000-0000374b06f1/connections";
+    public static void SendConnection(String d_id,String d_type,String d_groupId,String d_name,String s_id,String s_type,String s_groupId,String s_name,String Relations,String url)throws Exception{
+        //String url="http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/595d0518-015f-1000-0000-0000374b06f1/connections";
+        //http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/8d543e88-9b32-1944-aebc-b0d9f90a21c3/processors
+        String url_n=url;
         String data;
         Connection connection= new Connection(d_id,d_type,d_groupId,d_name,s_id,s_type,s_groupId,s_name,Relations);
         Gson gson = new Gson();
         data= gson.toJson(connection);
         System.out.println(data);
         HttpURLConnectionNifi http = new HttpURLConnectionNifi();
-        http.setUrl(url);
+        http.setUrl(url_n);
         http.setPostData(data);
         http.sendingPostRequest();
 
