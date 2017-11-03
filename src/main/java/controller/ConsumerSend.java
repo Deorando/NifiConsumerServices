@@ -21,6 +21,7 @@ public class ConsumerSend {
     double pos_x;
     double pos_y;
     String url;
+    String virtualHost;
 
     public String getData() {
         return data;
@@ -54,21 +55,23 @@ public class ConsumerSend {
         this.c = c;
     }
 
-    public ConsumerSend(String name, String queue_name, double pos_x, double pos_y) {
+    /*public ConsumerSend(String name, String queue_name, double pos_x, double pos_y,String virtualHost) {
         this.name=name;
         this.queue_name=queue_name;
         this.pos_x=pos_x;
         this.pos_y=pos_y;
+        this.virtualHost=virtualHost;
+
         this.p = new Position(this.pos_x, this.pos_y);
-        this.ppr = new Properties(this.queue_name);
+        this.ppr = new Properties(this.queue_name,this.virtualHost);
         this.c = new Consumer(this.p, this.ppr, this.name);
         Gson gson = new Gson();
         this.data = gson.toJson(this.c);
 
     }
+*/
 
-
-    public ConsumerSend(String name, String queue_name, double pos_x, double pos_y, String url) throws Exception {
+ /*   public ConsumerSend(String name, String queue_name, double pos_x, double pos_y, String url) throws Exception {
 
         this.name=name;
         this.queue_name=queue_name;
@@ -86,7 +89,7 @@ public class ConsumerSend {
 
 
     }
-
+*/
 
 }
     /*public static void SendConsumer(String name, String queue_name, double pos_x, double pos_y) throws Exception {
