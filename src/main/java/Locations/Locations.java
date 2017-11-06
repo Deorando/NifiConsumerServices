@@ -23,7 +23,7 @@ public class Locations {
         this.locations.add("/dint");
         this.locations.add("/ac");
         this.locations.add("/id");
-        this.locations.add(" ");
+        this.locations.add("/");
 
     }
 }

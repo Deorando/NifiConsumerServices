@@ -69,16 +69,12 @@ public class ProcessGroupUrl {
         this.process_group_url.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/7d6f4046-015f-1000-0000-00001e6bac70/processors");
         this.process_group_url.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/7d6f5a50-015f-1000-0000-000078e07790/processors");
         this.process_group_url.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/819aa9bb-015f-1000-ffff-ffffd4630a4f/processors");
-        this.process_group_url.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/63203780-c4f8-11f8-0000-00007651e389/processors");//empty
-
+        this.process_group_url.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/63203780-c4f8-11f8-0000-00007651e389/processors");//empty_usage
         this.process_group_url.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/632053f6-c4f8-11f8-0000-0000005478c5/processors");//empty_User
         this.process_group_url.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/632053e0-c4f8-11f8-0000-000049844bec/processors");//empty_purchase
         this.process_group_url.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/632053ad-c4f8-11f8-0000-000070a2bf88/processors");//empty_mail
         this.process_group_url.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/63205399-c4f8-11f8-ffff-ffff8ce85d30/processors");//empty_subs
         this.process_group_url.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/6320537c-c4f8-11f8-ffff-ffffbb8c9ee7/processors");//empty_commission
-
-
-
         this.process_group_url_con.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/595d04a7-015f-1000-0000-00007587fed5/connections");//tp
         this.process_group_url_con.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/595d0518-015f-1000-0000-0000374b06f1/connections");//ddach
         this.process_group_url_con.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/595d0587-015f-1000-0000-0000718eef50/connections");//dint
@@ -109,16 +105,13 @@ public class ProcessGroupUrl {
         this.process_group_url_con.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/7d6f4046-015f-1000-0000-00001e6bac70/connections");
         this.process_group_url_con.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/7d6f5a50-015f-1000-0000-000078e07790/connections");
         this.process_group_url_con.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/819aa9bb-015f-1000-ffff-ffffd4630a4f/connections");
-        this.process_group_url_con.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/63203780-c4f8-11f8-0000-00007651e389/connections");//empty
-
+        this.process_group_url_con.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/63203780-c4f8-11f8-0000-00007651e389/connections");//empty_usage
         this.process_group_url_con.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/632053f6-c4f8-11f8-0000-0000005478c5/connections");//empty_User
         this.process_group_url_con.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/632053e0-c4f8-11f8-0000-000049844bec/connections");//empty_purchase
         this.process_group_url_con.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/632053ad-c4f8-11f8-0000-000070a2bf88/connections");//empty_mail
         this.process_group_url_con.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/63205399-c4f8-11f8-ffff-ffff8ce85d30/connections");//empty_subs
-        this.process_group_url_con.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/6320537c-c4f8-11f8-ffff-ffffbb8c9ee7/connections");//empty_commission
+        this.process_group_url_con.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/6320537c-c4f8-11f8-ffff-ffffbb8c9ee7/connections");//empty_commissio
 
-        //this.process_group_url.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/595d04a7-015f-1000-0000-00007587fed5/processors");
-        //this.process_group_url_con.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/595d04a7-015f-1000-0000-00007587fed5/connections");
 
 
 
