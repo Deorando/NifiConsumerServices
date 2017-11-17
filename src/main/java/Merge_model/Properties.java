@@ -176,7 +176,7 @@ public class Properties {
         this.mMinimumGroupSize="0B";
         this.mMaximumGroupSize=null;
         this.mMaxBinAge=null;
-        this.mMaximumNumberOfBins="10000000";
+        this.mMaximumNumberOfBins="100";
         this.mDelimiterStrategy="Filename";
         this.mHeaderFile=null;
         this.mFooterFile=null;

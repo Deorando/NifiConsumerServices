@@ -48,10 +48,10 @@ public class HProperties {
         this.mHadoopConfigurationResources="/etc/hadoop_client_config/core-site.xml,/etc/hadoop_client_config/hdfs-site.xml,/etc/hadoop_client_config/yarn-site.xml";
         this.mKerberosPrincipal=null;
         this.mKerberosKeytab=null;
-        this.mKerberosReloginPeriod="4hours";
+        this.mKerberosReloginPeriod="4 hours";
         this.mDirectory=mDirectory;
         this.mConflictResolutionStrategy="fail";
-        this.mBlockSize="128MB";
+        this.mBlockSize="128 MB";
         this.mIOBufferSize=null;
         this.mReplication=null;
         this.mPermissionsUmask=null;

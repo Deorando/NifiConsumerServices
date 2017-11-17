@@ -172,7 +172,7 @@ public class GDProperties {
         this.mHadoopConfigurationResources="/etc/hadoop_client_config/core-site.xml,/etc/hadoop_client_config/hdfs-site.xml,/etc/hadoop_client_config/yarn-site.xml";
         this.mKerberosPrincipal=null;
         this.mKerberosKeytab=null;
-        this.mKerberosReloginPeriod="4hours";
+        this.mKerberosReloginPeriod="4 hours";
         ///user/talend/staging/usage_communication_data/merge
         this.mDirectory=directory;
         this.mRecurseSubdirectories="true";
