@@ -49,14 +49,20 @@ public class main {
 
 
         while (anz < process_group_url.size()) {
+            //Thread.sleep(5000);
+            System.out.println("URL: "+process_group_url.get(anz));
             URL oracle = new URL(process_group_url.get(anz));
+            //Thread.sleep(5000);
             BufferedReader in = new BufferedReader(new InputStreamReader(oracle.openStream()));
             String json = "";
             String inputLine = "";
+            //Thread.sleep(5000);
             while ((inputLine = in.readLine()) != null) {
                 json += inputLine;
+                System.out.print("inputLine: "+inputLine);
             }
             in.close();
+            System.out.println("XXXXX: "+json);
             Gson gson = new Gson();
             rpg = gson.fromJson(json, ReadProcessGroup.class);
             for (int z = 0; z < rpg.getProcessors().size(); z++) {
@@ -197,24 +203,24 @@ public class main {
     }
 
     public static void main(String[] args) throws Exception {
-        ReadDWH_usage();
-        ReadDWH_user();
-        ReadDWH_purchase();
-        ReadDWH_mail();
-        ReadDWH_subscription();
-        ReadDWH_commission();
+        //ReadDWH_usage();
+        //ReadDWH_user();
+        //ReadDWH_purchase();
+        //ReadDWH_mail();
+        //ReadDWH_subscription();
+        //ReadDWH_commission();
         createConnection();
         updateProcessors();
     }
 
     private static void ReadDWH_commission()throws Exception {
         List<String> l_url_com = new ArrayList<String>();
-        l_url_com.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/357c3bee-f918-182c-8d3d-804e13018cac/processors");//Commission_tp
-        l_url_com.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/c4633f4d-4d06-19b4-bf3b-26a3356c5b7c/processors");//Commission_ddach
-        l_url_com.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/44103009-7328-1e97-a740-c300f52ca75f/processors");//Commission_dint
-        l_url_com.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/cfca358a-a60c-1205-986a-ba4cfceed52b/processors");//Commission_ac
-        l_url_com.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/41083564-225c-1c83-aac9-56e2589cb9bc/processors");//Commission_id
-        l_url_com.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/b6ee31b0-86e2-1d08-b2e8-00e2c625005e/processors");//Commission_empty
+        l_url_com.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/e4259f52-015f-1000-4a18-c71ee5c45d23/processors");//Commission_tp
+        l_url_com.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/e4259f53-015f-1000-3852-b3e9373600e2/processors");//Commission_ddach
+        l_url_com.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/e4259f54-015f-1000-b343-493287188902/processors");//Commission_dint
+        l_url_com.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/e4259f55-015f-1000-b5d5-12a0cff68f57/processors");//Commission_ac
+        l_url_com.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/e4259f56-015f-1000-2814-77f1632b12a3/processors");//Commission_id
+        l_url_com.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/e4259f57-015f-1000-7dd7-6d829844c6a1/processors");//Commission_empty
 
 
         String inputLine;
@@ -252,12 +258,12 @@ public class main {
 
     private static void ReadDWH_subscription()throws Exception {
         List<String> l_url_subs = new ArrayList<String>();
-        l_url_subs.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/9e0a344a-14b1-1836-91d7-ad743bbc732a/processors");//Subscription_tp
-        l_url_subs.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/3da93842-cfa3-19e9-9535-bf6cbfe0888e/processors");//Subscription_ddach
-        l_url_subs.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/5b5e3734-b77d-1a11-baad-cccdfb891b57/processors");//Subscription_dint
-        l_url_subs.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/187e306d-465b-15a1-961d-ebd174345c4c/processors");//Subscription_ac
-        l_url_subs.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/ee633ad9-dac0-1618-939d-007f9c014f1e/processors");//Subscription_id
-        l_url_subs.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/2cf53460-f0a0-15b0-9c4e-13e77e944a6b/processors");//Subscription_empty
+        l_url_subs.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/e423c602-015f-1000-30ea-9d5eb88b2394/processors");//Subscription_tp
+        l_url_subs.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/e423c603-015f-1000-c50a-2edb63df2c7e/processors");//Subscription_ddach
+        l_url_subs.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/e423c604-015f-1000-997b-e37fd945be53/processors");//Subscription_dint
+        l_url_subs.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/e423c605-015f-1000-ae90-75992994a9eb/processors");//Subscription_ac
+        l_url_subs.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/e423c606-015f-1000-8339-158c385dc669/processors");//Subscription_id
+        l_url_subs.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/e423c607-015f-1000-481a-1a2c82facba8/processors");//Subscription_empty
 
         String inputLine;
         int i_x = 1000;
@@ -297,12 +303,12 @@ public class main {
         //URL oracle = new URL("http://dwh-schemaservice-stage.cyberservices.local:2876/schema-repo");
         //BufferedReader in = new BufferedReader(new InputStreamReader(oracle.openStream()));
         List<String> l_url_mail = new ArrayList<String>();
-        l_url_mail.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/ddd232cb-6a37-1a51-a0bb-58d6e84febf3/processors");//Mail_tp
-        l_url_mail.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/73df3e44-eebb-1d97-aea7-8c8bd14b24f7/processors");//Mail_ddach
-        l_url_mail.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/014634fa-c48e-1deb-8496-d4d12d94e147/processors");//Mail_dint
-        l_url_mail.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/9e2834a0-b943-129d-9f7a-e61443681127/processors");//Mail_ac
-        l_url_mail.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/4ef33d43-8d77-134b-90fc-78981a510f39/processors");//Mail_id
-        l_url_mail.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/a2a43f6e-3f67-1116-8365-7b8cbb7a27e7/processors");//Mail_empty
+        l_url_mail.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/e421d588-015f-1000-79ed-0517a44856e6/processors");//Mail_tp
+        l_url_mail.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/e421d589-015f-1000-8a42-23110738e44a/processors");//Mail_ddach
+        l_url_mail.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/e421d58a-015f-1000-513d-4108c2c17481/processors");//Mail_dint
+        l_url_mail.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/e421d58b-015f-1000-ea0f-8acfc1871757/processors");//Mail_ac
+        l_url_mail.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/e421d58c-015f-1000-9e2d-1a61a048b485/processors");//Mail_id
+        l_url_mail.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/e421d58d-015f-1000-b33a-4a80af41686c/processors");//Mail_empty
 
         String inputLine;
         int i_x = 1000;
@@ -463,12 +469,12 @@ public class main {
     public static void ReadDWH_purchase() throws Exception {
 
         List<String> l_url_purchase = new ArrayList<String>();
-        l_url_purchase.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/809330a5-7325-16fc-8ca9-32d8d0a6ab86/processors");//Purchase_tp
-        l_url_purchase.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/77663861-dc5e-17f5-9448-d9879646a837/processors");//Purchase_ddach
-        l_url_purchase.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/ec4232c9-8011-1ea7-a9b0-288259017712/processors");//Purchase_dint
-        l_url_purchase.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/5ac032f2-f49b-19be-b8c0-3a6aa223ca81/processors");//Purchase_ac
-        l_url_purchase.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/dd2b3a79-d33a-1b02-9e17-cfd0f8a39aa4/processors");//Purchase_id
-        l_url_purchase.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/800933e8-2e8f-165d-ab0c-053fbb5f68a3/processors");//Purchase_empty
+        l_url_purchase.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/e424c2c2-015f-1000-23c4-f99040e80ac3/processors");//Purchase_tp
+        l_url_purchase.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/e424c2c3-015f-1000-cb8a-95e5af1c83a9/processors");//Purchase_ddach
+        l_url_purchase.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/e424c2c4-015f-1000-dbaf-7aded8220522/processors");//Purchase_dint
+        l_url_purchase.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/e424c2c5-015f-1000-812f-52e6168ff0bb/processors");//Purchase_ac
+        l_url_purchase.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/e424c2c6-015f-1000-5bc0-767eb9495947/processors");//Purchase_id
+        l_url_purchase.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/e424c2c7-015f-1000-9559-71238fd30298/processors");//Purchase_empty
 
         String inputLine;
         int i_x = 1000;
@@ -506,12 +512,12 @@ public class main {
     public static void ReadDWH_usage() throws Exception {
         List<String> l_url_usage = new ArrayList<String>();
         //Backup
-        l_url_usage.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/c95fdea7-015f-1000-ffff-ffffda3afe01/processors");//Usage_tp
-        l_url_usage.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/533b3e7a-1f1d-1c27-99a7-6f37368c0f19/processors");//Usage_ddach
-        l_url_usage.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/0cf635aa-47d7-16cc-be34-f4ea4fce828d/processors");//Usage_dint
-        l_url_usage.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/9a683d4d-c6df-1d28-8df8-dd4355546246/processors");//Usage_ac
-        l_url_usage.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/d3e23988-2b8e-1429-a45b-59275008dd46/processors");//Usage_id
-        l_url_usage.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/926630f5-3ee2-1c4e-8b93-98d0cb7029f9/processors");//Usage_empty
+        l_url_usage.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/e420e3e9-015f-1000-7ad1-a6c9ac996d0c/processors");//Usage_tp
+        l_url_usage.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/e4210101-015f-1000-5879-78aa7c648228/processors");//Usage_ddach
+        l_url_usage.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/e4212331-015f-1000-6280-ecb6fb2aee14/processors");//Usage_dint
+        l_url_usage.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/e421431b-015f-1000-4e06-45ff3c3ec5aa/processors");//Usage_ac
+        l_url_usage.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/e4216ec1-015f-1000-bff6-05a1f919b499/processors");//Usage_id
+        l_url_usage.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/e421922b-015f-1000-7efb-dd6862096ffa/processors");//Usage_empty
 
         //l_url_usage.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/880f0c59-015f-1000-ffff-ffffae6607aa/processors");//id
         String inputLine;
@@ -551,12 +557,12 @@ public class main {
         //URL oracle = new URL("http://dwh-schemaservice-stage.cyberservices.local:2876/schema-repo");
         //BufferedReader in = new BufferedReader(new InputStreamReader(oracle.openStream()));
         List<String> l_url_user = new ArrayList<String>();
-        l_url_user.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/c079355e-4b66-16f1-9744-40b5fbf614d1/processors");//User_tp
-        l_url_user.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/413a387f-e869-15ef-8ebe-641d1c4d677f/processors");//User_ddach
-        l_url_user.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/3b8a3d68-b24f-1824-8f5c-af58040b4898/processors");//User_dint
-        l_url_user.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/32d9353d-2294-1924-b503-1f6454e77676/processors");//User_ac
-        l_url_user.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/331e3ce4-9100-120d-86c5-a2e03e2eed1c/processors");//User_id
-        l_url_user.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/a94c32a1-6f7a-10d0-874e-98f28221f475/processors");//User_empty
+        l_url_user.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/e422f043-015f-1000-3c0f-e8e2c120e36f/processors");//User_tp
+        l_url_user.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/e422f044-015f-1000-f7a6-6a9f88eb986e/processors");//User_ddach
+        l_url_user.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/e422f045-015f-1000-b160-ccec7b851587/processors");//User_dint
+        l_url_user.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/e422f046-015f-1000-f369-7750db77c8b6/processors");//User_ac
+        l_url_user.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/e422f047-015f-1000-bdeb-a65477b764fc/processors");//User_id
+        l_url_user.add("http://nifi01s.cyberservices.local:8080/nifi-api/process-groups/e422f048-015f-1000-b5e1-c9c9570d16f8/processors");//User_empty
 
 
         String inputLine;

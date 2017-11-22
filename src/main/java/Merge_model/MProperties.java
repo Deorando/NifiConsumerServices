@@ -183,6 +183,8 @@ public class MProperties {
         this.mDemarcatorFile=null;
         this.mCompressionLevel="1";
         this.mKeepPath="false";
+        this.mMaximumNumberOfEntries=null;
+
     }
 
 }
