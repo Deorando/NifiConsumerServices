@@ -30,7 +30,7 @@ public class Properties {
     public Properties(String mQueue,String virtualHost) {
         this.mQueue = mQueue;
         this.mAMQPVersion="0.9.1";
-        this.mHostName="172.16.26.5";
+        this.mHostName="rabbithole.cyberservices.local";
         this.mPassword="xohbooD2";
         this.mPort="5672";
         this.mSslClientAuth="REQUIRED";
