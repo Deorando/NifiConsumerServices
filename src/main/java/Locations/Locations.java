@@ -18,12 +18,12 @@ public class Locations {
     }
 
     public Locations() {
-        this.locations.add("/tp");
-        this.locations.add("/ddach");
+        //this.locations.add("/tp");
+        //this.locations.add("/ddach");
         this.locations.add("/dint");
-        this.locations.add("/ac");
-        this.locations.add("/id");
-        this.locations.add("/");
+        //this.locations.add("/ac");
+        //this.locations.add("/id");
+        //this.locations.add("/");
 
     }
 }
